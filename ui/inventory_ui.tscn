@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhfhlpi8ada5a"]
+
+[ext_resource type="Script" path="res://ui/inventory_ui.gd" id="1_h5iag"]
+[ext_resource type="PackedScene" uid="uid://blgt3mybhhr0s" path="res://ui/equipment_panel.tscn" id="1_t6v4k"]
+[ext_resource type="PackedScene" uid="uid://cot4k8tl1qeov" path="res://ui/weapon_inventory_panel.tscn" id="2_yqnis"]
+
+[node name="InventoryUI" type="CanvasLayer"]
+script = ExtResource("1_h5iag")
+
+[node name="EquipmentPanel" parent="." instance=ExtResource("1_t6v4k")]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 260.0
+offset_bottom = 460.0
+
+[node name="WeaponInventoryPanel" parent="." instance=ExtResource("2_yqnis")]
+offset_left = 270.0
+offset_top = 60.0
+offset_right = 526.0
+offset_bottom = 258.0

@@ -6,6 +6,7 @@ signal selected
 
 @onready var item_sprite = %ItemSprite
 @onready var border_rect = $BorderRect
+@onready var fill_rect = $BorderRect/FillRect
 
 var slot_empty: bool = true
 var current_item: Item = null
@@ -15,6 +16,8 @@ var is_armor_resource: bool = false
 
 func _ready():
 	item_sprite.texture = null
+	fill_rect.color = Color.GRAY
+	border_rect.color = Color.BLACK
 #	set_item(temp_item)
 	pass
 

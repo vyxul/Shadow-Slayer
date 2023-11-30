@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var dash_charge_label = $Label
-@onready var sweep = $TextureRect/TextureProgressBar
+@onready var dash_charge_label = $MarginContainer/TextureRect/Label
+@onready var sweep = $MarginContainer/TextureRect/TextureProgressBar
 @onready var timer = $Timer
 
 var cooldown: float = 1
