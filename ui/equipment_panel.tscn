@@ -155,3 +155,4 @@ Weapon Stats"
 autowrap_mode = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer/WeaponSlot" to="." method="_on_weapon_slot_item_updated"]

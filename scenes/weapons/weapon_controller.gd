@@ -12,9 +12,11 @@ var current_weapon_controller: PackedScene = null
 func _ready():
 	set_weapon(temp_item_resource)
 	GameEvents.item_selected.connect(set_weapon)
+	GameEvents.equipped_weapon_changed.connect(set_weapon)
 
 
 func set_weapon(weapon_item: Item):
+	print_debug("Changing weapon: " + weapon_item.item_resource.get_item_info())
 	current_item = weapon_item
 	current_weapon_resource = weapon_item.item_resource as WeaponResource
 	current_weapon_controller = weapon_item.item_controller

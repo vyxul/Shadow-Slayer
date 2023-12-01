@@ -1,6 +1,7 @@
 extends PanelContainer
 
 signal selected
+signal item_updated(current_item: Item)
 
 #@export var temp_item: Item
 @export var is_draggable: bool = false
@@ -38,12 +39,16 @@ func set_item(item: Item):
 	slot_empty = false
 	fill_rect.color = Color.WHITE
 	
+	# change the look of the item slot depending on what type of item it is
+	# can change this later to use the type property enums instead of class type
 	var item_resource = current_item.item_resource
 	if item_resource is WeaponResource:
 #		print_debug("item resource counts as weapon resource")
 		border_rect.color = Color.DARK_RED
 		is_weapon_resource = true
-
+	
+	# emit signal that item changed
+	item_updated.emit(current_item)
 
 # function that executes when draggin from this slot
 func _get_drag_data(at_position):
@@ -99,13 +104,5 @@ func _on_gui_input(event: InputEvent):
 	if event.is_action_pressed("left_click"):
 		if current_item:
 			var item_resource = current_item.item_resource
-			print_debug(item_resource.get_item_info())
+#			print_debug(item_resource.get_item_info())
 			selected.emit()
-
-
-func _on_mouse_entered():
-	GameEvents.mouse_entered_ui()
-
-
-func _on_mouse_exited():
-	GameEvents.mouse_exited_ui()

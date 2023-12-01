@@ -13,7 +13,7 @@ var ability_inventory:   Array[Item] = []
 func _ready():
 	for item in test_array:
 		add_item(item)
-	remove_item(test_item)
+#	remove_item(test_item)
 
 
 func get_weapon_inventory() -> Array[Item]:
@@ -38,13 +38,13 @@ func remove_item(item: Item):
 	var item_resource = item.item_resource
 	var inventory_array = null
 	# can do a match statement here later when we have more item types
-	print_debug("REMOVE: " + item_resource.get_item_info())
+#	print_debug("REMOVE: " + item_resource.get_item_info())
 	if item_resource is WeaponResource:
-		print_debug("Classified as a weapon")
+#		print_debug("Classified as a weapon")
 		inventory_array = weapon_inventory
 		
 	inventory_array.erase(item)
-	print_debug(inventory_array_to_string(inventory_array))
+#	print_debug(inventory_array_to_string(inventory_array))
 
 
 # will categorize the item into the 4 item_resource child types we have and
@@ -53,14 +53,14 @@ func add_item(item: Item):
 	var item_resource = item.item_resource
 	var inventory_array = null
 	# can do a match statement here later when we have more item types
-	print_debug("ADD: " + item_resource.get_item_info())
+#	print_debug("ADD: " + item_resource.get_item_info())
 	if item_resource is WeaponResource:
-		print_debug("Classified as a weapon")
+#		print_debug("Classified as a weapon")
 		inventory_array = weapon_inventory
 	
 	inventory_array.append(item)
 	sort_inventory(inventory_array)
-	print_debug(inventory_array_to_string(inventory_array))
+#	print_debug(inventory_array_to_string(inventory_array))
 
 
 # helper function to call custom sort method for a variable array

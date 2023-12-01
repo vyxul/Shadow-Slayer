@@ -21,3 +21,8 @@ func _on_gui_input(event: InputEvent):
 
 func set_panel_visible(state: bool):
 	visible = state
+
+
+func _on_weapon_slot_item_updated(current_item):
+	print_debug("Changing weapon: " + current_item.item_resource.get_item_info())
+	GameEvents.emit_equipped_weapon_changed(current_item)
