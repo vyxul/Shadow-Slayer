@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://blgt3mybhhr0s"]
+[gd_scene load_steps=11 format=3 uid="uid://blgt3mybhhr0s"]
 
 [ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/item_slot.tscn" id="1_0j26m"]
 [ext_resource type="Script" path="res://ui/equipment_panel.gd" id="1_gscc3"]
 [ext_resource type="Texture2D" uid="uid://c2bik6rmncfn1" path="res://scenes/player/idle/tile000.png" id="2_io7mw"]
+[ext_resource type="Texture2D" uid="uid://b3vg3rmhhll3y" path="res://assets/art/ui/helmet.png" id="3_cjrdp"]
+[ext_resource type="Texture2D" uid="uid://6s63arfbv7ci" path="res://assets/art/ui/armor.png" id="4_00gc7"]
+[ext_resource type="Texture2D" uid="uid://10nkaihw3i14" path="res://assets/art/ui/gauntlets.png" id="5_nla6b"]
+[ext_resource type="Texture2D" uid="uid://6dt2pu03bq1i" path="res://assets/art/ui/boots.png" id="6_uq4mv"]
+[ext_resource type="Texture2D" uid="uid://cvu6cs43w3ujp" path="res://assets/art/ui/ring_1.png" id="8_8j8ld"]
+[ext_resource type="Texture2D" uid="uid://c4batxoutxu6v" path="res://assets/art/ui/ring_2.png" id="9_mhs2x"]
+[ext_resource type="Texture2D" uid="uid://cic4wfk4erwsy" path="res://assets/art/ui/amulet.png" id="10_oxc3k"]
 
 [node name="EquipmentPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -32,32 +39,40 @@ layout_mode = 2
 [node name="HelmetSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("3_cjrdp")
+is_removable = true
+is_draggable = true
 is_editable = true
-is_type_required = true
 item_type_required = 2
 armor_type_required = 1
 
 [node name="ChestSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("4_00gc7")
+is_removable = true
+is_draggable = true
 is_editable = true
-is_type_required = true
 item_type_required = 2
 armor_type_required = 2
 
 [node name="ArmSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("5_nla6b")
+is_removable = true
+is_draggable = true
 is_editable = true
-is_type_required = true
 item_type_required = 2
 armor_type_required = 3
 
 [node name="LegsSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("6_uq4mv")
+is_removable = true
+is_draggable = true
 is_editable = true
-is_type_required = true
 item_type_required = 2
 armor_type_required = 4
 
@@ -77,6 +92,9 @@ layout_mode = 2
 [node name="RingSlot_1" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("8_8j8ld")
+is_removable = true
+is_draggable = true
 is_editable = true
 is_type_required = true
 item_type_required = 3
@@ -85,6 +103,9 @@ accessory_type_required = 1
 [node name="RingSlot_2" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("9_mhs2x")
+is_removable = true
+is_draggable = true
 is_editable = true
 is_type_required = true
 item_type_required = 3
@@ -93,6 +114,9 @@ accessory_type_required = 1
 [node name="NecklaceSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+default_texture = ExtResource("10_oxc3k")
+is_removable = true
+is_draggable = true
 is_editable = true
 is_type_required = true
 item_type_required = 3
@@ -101,6 +125,8 @@ accessory_type_required = 2
 [node name="WeaponSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+is_removable = true
+is_draggable = true
 is_editable = true
 is_type_required = true
 item_type_required = 1
@@ -118,6 +144,7 @@ size_flags_horizontal = 4
 [node name="AbilitySlot_1" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+is_removable = true
 is_draggable = true
 is_editable = true
 item_type_required = 4
@@ -125,6 +152,7 @@ item_type_required = 4
 [node name="AbilitySlot_2" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+is_removable = true
 is_draggable = true
 is_editable = true
 item_type_required = 4
@@ -132,6 +160,7 @@ item_type_required = 4
 [node name="AbilitySlot_3" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+is_removable = true
 is_draggable = true
 is_editable = true
 item_type_required = 4
@@ -139,6 +168,7 @@ item_type_required = 4
 [node name="AbilitySlot_4" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
 unique_name_in_owner = true
 layout_mode = 2
+is_removable = true
 is_draggable = true
 is_editable = true
 item_type_required = 4
@@ -163,5 +193,4 @@ DMG
 Weapon Stats"
 autowrap_mode = 1
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer/WeaponSlot" to="." method="_on_weapon_slot_item_updated"]

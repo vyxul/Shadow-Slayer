@@ -1,9 +1,10 @@
 extends PanelContainer
 
-signal selected
 signal item_updated(current_item: Item)
 
 #@export var temp_item: Item
+@export var default_texture: Texture2D = null
+@export var is_removable: bool = false
 @export var is_draggable: bool = false
 @export var is_editable: bool = false
 @export var is_type_required: bool = false
@@ -26,11 +27,16 @@ var is_accessory_resource: bool = false
 var is_ability_resource: bool = false
 
 func _ready():
-	item_sprite.texture = null
-	fill_rect.color = Color.GRAY
-	border_rect.color = Color.BLACK
+	if slot_empty:
+		if !default_texture:
+			item_sprite.texture = null
+		
+		else:
+			item_sprite.texture = default_texture
+
+		fill_rect.color = Color.DARK_GRAY
+		border_rect.color = Color.BLACK
 #	set_item(temp_item)
-	pass
 
 
 func set_item(item: Item):
@@ -49,6 +55,22 @@ func set_item(item: Item):
 	
 	# emit signal that item changed
 	item_updated.emit(current_item)
+
+
+func remove_item():
+	current_item = null
+	slot_empty = false
+	fill_rect.color = Color.DARK_GRAY
+	border_rect.color = Color.BLACK
+	
+	if default_texture:
+		item_sprite.texture = default_texture
+	else:
+		item_sprite.texture = null
+	
+	# let relevant components know that item was removed from slot
+	item_updated.emit(null)
+
 
 # function that executes when draggin from this slot
 func _get_drag_data(at_position):
@@ -104,5 +126,7 @@ func _on_gui_input(event: InputEvent):
 	if event.is_action_pressed("left_click"):
 		if current_item:
 			var item_resource = current_item.item_resource
-#			print_debug(item_resource.get_item_info())
-			selected.emit()
+
+	if event.is_action_pressed("right_click"):
+		if is_removable and current_item:
+			remove_item()

@@ -155,7 +155,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lrx"]
 size = Vector2(16, 32)
 
-[node name="AxeCommon" type="Node2D"]
+[node name="AxeController" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_45a31")
 

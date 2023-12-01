@@ -155,7 +155,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwyvf"]
 size = Vector2(56, 27)
 
-[node name="SwordCommon" type="Node2D"]
+[node name="SwordController" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_508dp")
 

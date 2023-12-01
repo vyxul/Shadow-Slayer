@@ -14,15 +14,11 @@ extends PanelContainer
 @onready var ability_slot_4 = %AbilitySlot_4
 
 
-func _on_gui_input(event: InputEvent):
-	if event.is_action_pressed("left_click"):
-		print_debug("mouse click detected on equip panel")
-
-
 func set_panel_visible(state: bool):
 	visible = state
 
 
 func _on_weapon_slot_item_updated(current_item):
 #	print_debug("Changing weapon: " + current_item.item_resource.get_item_info())
-	GameEvents.emit_equipped_weapon_changed(current_item)
+	PlayerStats.set_weapon(current_item)
+#	print_debug("sending signal")

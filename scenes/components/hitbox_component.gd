@@ -3,7 +3,10 @@ class_name HitboxComponent
 
 
 func _on_area_entered(area: Area2D):
-	print_debug(area.name)
+	# eventually make two different code blocks, one for when it hits standard
+	# hurtbox, which will be for enemies
+	# and one for when it hits specialized player hurtbox, which is only for player
+#	print_debug(area.name)
 	if not area is HurtboxComponent:
 		return
 	

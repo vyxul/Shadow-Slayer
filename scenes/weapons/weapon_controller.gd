@@ -11,10 +11,19 @@ var current_weapon_controller: PackedScene = null
 
 func _ready():
 	set_weapon(temp_item_resource)
-	GameEvents.equipped_weapon_changed.connect(set_weapon)
+	PlayerStats.current_weapon_changed.connect(set_weapon)
 
 
 func set_weapon(weapon_item: Item):
+	# if passed in null, that means that weapon was removed in equipment
+	if weapon_item == null:
+		current_item = null
+		current_weapon_resource = null
+		current_weapon_controller = null
+		return
+		# dont need to worry about timer i think
+	
+	# else, a valid weapon is passed in
 #	print_debug("Changing weapon: " + weapon_item.item_resource.get_item_info())
 	current_item = weapon_item
 	current_weapon_resource = weapon_item.item_resource as WeaponResource

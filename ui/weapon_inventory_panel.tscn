@@ -64,5 +64,3 @@ layout_mode = 2
 
 [node name="ItemSlot7" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
