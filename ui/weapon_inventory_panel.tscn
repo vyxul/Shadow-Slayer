@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cot4k8tl1qeov"]
 
-[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/weapon_slot.tscn" id="1_7gibm"]
+[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/item_slot.tscn" id="1_7gibm"]
 [ext_resource type="Script" path="res://ui/weapon_inventory_panel.gd" id="1_ue3tf"]
 
 [node name="WeaponInventoryPanel" type="PanelContainer"]
@@ -39,68 +39,30 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/margin_left = 8
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="Weapon_GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 5
 
-[node name="WeaponSlot" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot2" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot2" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot3" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot3" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot4" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot4" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot5" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot5" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot6" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot6" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
-[node name="WeaponSlot7" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot8" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot9" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot10" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot11" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot12" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot13" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot14" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot15" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot16" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot17" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot18" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot19" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
-layout_mode = 2
-
-[node name="WeaponSlot20" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_7gibm")]
+[node name="ItemSlot7" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/Weapon_GridContainer" instance=ExtResource("1_7gibm")]
 layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

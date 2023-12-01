@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blgt3mybhhr0s"]
 
-[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/weapon_slot.tscn" id="1_0j26m"]
+[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/item_slot.tscn" id="1_0j26m"]
 [ext_resource type="Script" path="res://ui/equipment_panel.gd" id="1_gscc3"]
 [ext_resource type="Texture2D" uid="uid://c2bik6rmncfn1" path="res://scenes/player/idle/tile000.png" id="2_io7mw"]
 
@@ -29,16 +29,36 @@ size_flags_horizontal = 4
 layout_mode = 2
 
 [node name="HelmetSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+is_type_required = true
+item_type_required = 2
+armor_type_required = 1
 
 [node name="ChestSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+is_type_required = true
+item_type_required = 2
+armor_type_required = 2
 
 [node name="ArmSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+is_type_required = true
+item_type_required = 2
+armor_type_required = 3
 
 [node name="LegsSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+is_type_required = true
+item_type_required = 2
+armor_type_required = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer"]
 custom_minimum_size = Vector2(88, 0)
@@ -54,16 +74,31 @@ stretch_mode = 6
 layout_mode = 2
 
 [node name="RingSlot_1" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+item_type_required = 3
+accessory_type_required = 1
 
 [node name="RingSlot_2" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+item_type_required = 3
+accessory_type_required = 1
 
 [node name="NecklaceSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+item_type_required = 3
+accessory_type_required = 2
 
 [node name="WeaponSlot" parent="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_editable = true
+item_type_required = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 4)
@@ -76,16 +111,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="AbilitySlot_1" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_draggable = true
+is_editable = true
 
 [node name="AbilitySlot_2" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_draggable = true
+is_editable = true
 
 [node name="AbilitySlot_3" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_draggable = true
+is_editable = true
 
 [node name="AbilitySlot_4" parent="MarginContainer/VBoxContainer/Ability_HBoxContainer" instance=ExtResource("1_0j26m")]
+unique_name_in_owner = true
 layout_mode = 2
+is_draggable = true
+is_editable = true
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)

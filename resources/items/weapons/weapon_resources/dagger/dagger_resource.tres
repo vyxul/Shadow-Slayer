@@ -5,10 +5,7 @@
 
 [resource]
 script = ExtResource("1_1c8ux")
-weapon_id = "dagger"
-weapon_type = 3
-weapon_name = ""
-weapon_description = ""
+weapon_type = 4
 weapon_damage = 1
 weapon_damage_element = 0
 weapon_damage_type = 1
@@ -18,6 +15,9 @@ weapon_pierce = 1
 weapon_magazine_size = 0
 weapon_magazine_reload_speed = 0.0
 weapon_projectile_speed = 0.0
-item_type = 0
+item_type = 1
 icon_texture = ExtResource("2_o6bxw")
 item_rarity = 0
+item_id = 4
+item_name = "Dagger - Common"
+item_description = ""

@@ -4,7 +4,7 @@ extends CanvasLayer
 
 @onready var grid_container = $MarginContainer/GridContainer
 
-var weapon_slot_scene = preload("res://ui/weapon_slot.tscn")
+var weapon_slot_scene = preload("res://ui/item_slot.tscn")
 
 func _ready():
 	for child in grid_container.get_children():

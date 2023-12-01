@@ -1,0 +1,12 @@
+[gd_scene load_steps=6 format=3 uid="uid://cystcde1ovn70"]
+
+[ext_resource type="Script" path="res://scenes/autoload/PlayerInventory.gd" id="1_fnxhk"]
+[ext_resource type="Resource" uid="uid://dqknu6ge6507c" path="res://resources/items/weapons/weapon_resources/axe/axe_item.tres" id="2_64p37"]
+[ext_resource type="Resource" uid="uid://nfssph47alpg" path="res://resources/items/weapons/weapon_resources/dagger/dagger_item.tres" id="3_hhf44"]
+[ext_resource type="Resource" uid="uid://jtigityjhfh3" path="res://resources/items/weapons/weapon_resources/katana/katana_item.tres" id="4_oly6q"]
+[ext_resource type="Resource" uid="uid://b4psyok027ckm" path="res://resources/items/weapons/weapon_resources/sword/sword_item.tres" id="5_70hfu"]
+
+[node name="PlayerInventory" type="Node"]
+script = ExtResource("1_fnxhk")
+test_array = Array[Resource("res://resources/items/item.gd")]([ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("5_70hfu")])
+test_item = ExtResource("4_oly6q")

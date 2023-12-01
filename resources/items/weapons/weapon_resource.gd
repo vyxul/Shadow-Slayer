@@ -1,15 +1,8 @@
 extends ItemResource
 class_name WeaponResource
 
-enum WeaponType {SWORD, KATANA, AXE, DAGGER, HAMMER}
-
 @export_group("Weapon Meta-Data")
-@export var weapon_id: String
-@export var weapon_type: WeaponType
-
-@export_group("Weapon Details")
-@export var weapon_name: String
-@export_multiline var weapon_description: String
+@export var weapon_type: ItemTypeEnums.WeaponType
 
 @export_group("Weapon Stats")
 @export var weapon_damage: int

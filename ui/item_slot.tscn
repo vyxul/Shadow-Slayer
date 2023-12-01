@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://1gdnvp87qhtf"]
 
-[ext_resource type="Script" path="res://ui/weapon_slot.gd" id="1_w83jp"]
-[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/weapons/sword.png" id="2_8udvd"]
+[ext_resource type="Script" path="res://ui/item_slot.gd" id="1_53utd"]
+[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/weapons/sword.png" id="2_5bhdr"]
 
-[node name="WeaponSlot" type="PanelContainer"]
+[node name="ItemSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(42, 43)
 offset_right = 40.0
 offset_bottom = 41.0
 pivot_offset = Vector2(16, 16)
-script = ExtResource("1_w83jp")
+script = ExtResource("1_53utd")
 
 [node name="BorderRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(34, 34)
@@ -43,10 +43,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ItemSprite" type="Sprite2D" parent="BorderRect/FillRect/MarginContainer"]
+[node name="ItemSprite" type="TextureRect" parent="BorderRect/FillRect/MarginContainer"]
 unique_name_in_owner = true
-texture = ExtResource("2_8udvd")
-centered = false
+layout_mode = 2
+texture = ExtResource("2_5bhdr")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
