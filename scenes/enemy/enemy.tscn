@@ -398,6 +398,7 @@ max_hp = 5
 armor_component = NodePath("../ArmorComponent")
 
 [node name="ArmorComponent" parent="." instance=ExtResource("3_htnpg")]
+physical_resist = 0.0
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1bxcv")]
 collision_layer = 8
