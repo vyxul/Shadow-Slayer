@@ -2,8 +2,8 @@ extends Node
 class_name HealthComponent
 
 signal died
-signal hp_lost(new_current_hp: int, max_hp: int)
-signal hp_healed(new_current_hp: int, max_hp: int)
+signal hp_lost(damage_taken: int, new_current_hp: int, max_hp: int)
+signal hp_healed(health_healed: int, new_current_hp: int, max_hp: int)
 
 @export var max_hp: int = 1
 var current_hp: int
@@ -24,7 +24,7 @@ func check_hp():
 	current_hp = clamp(current_hp, 0, max_hp)
 
 
-func damage(damage_stats: Dictionary):
+func damage(damage_stats: Dictionary) -> int:
 	var damage_amount  = damage_stats["damage"]
 	var damage_element = damage_stats["damage_element"]
 	var damage_type    = damage_stats["damage_type"]
@@ -41,10 +41,12 @@ func damage(damage_stats: Dictionary):
 	
 	current_hp -= adjusted_damage_amount
 	check_hp()
-	hp_lost.emit(current_hp, max_hp)
+	hp_lost.emit(adjusted_damage_amount, current_hp, max_hp)
+	
+	return adjusted_damage_amount
 
 
 func heal(heal_amount: int):
 	current_hp += heal_amount
 	check_hp()
-	hp_healed.emit(current_hp, max_hp)
+	hp_healed.emit(heal_amount, current_hp, max_hp)

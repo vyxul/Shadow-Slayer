@@ -411,10 +411,10 @@ shape = SubResource("CircleShape2D_5623h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_vs4qs")
-animation = &"attack_close"
+animation = &"die"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.362346
+frame = 4
+frame_progress = 0.360584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)

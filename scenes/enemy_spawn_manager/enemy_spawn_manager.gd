@@ -18,7 +18,7 @@ func _on_spawn_timer_timeout():
 		var enemy_instance = enemy_to_spawn.instantiate()
 		# Set the enemy instance's position to a random location
 		enemy_instance.global_position = get_random_position()
-		add_child(enemy_instance)
+		get_tree().get_first_node_in_group("entity_layer").add_child(enemy_instance)
 	else:
 		print("Error: PackedScene not loaded.")
 

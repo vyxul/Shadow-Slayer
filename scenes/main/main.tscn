@@ -10,6 +10,17 @@
 
 [node name="main" type="Node"]
 
+[node name="DashAbilityUI" parent="." instance=ExtResource("6_btw8a")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("8_sl4df")]
+visible = false
+
+[node name="EnemySpawnManager" parent="." instance=ExtResource("5_udeml")]
+time_between_spawns = 1
+
+[node name="Camera2D" parent="." instance=ExtResource("3_aarrx")]
+position = Vector2(320, 180)
+
 [node name="BaseFloorTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_rhnol")
 format = 2
@@ -25,16 +36,9 @@ tile_set = ExtResource("2_bqryv")
 format = 2
 layer_0/tile_data = PackedInt32Array(196615, 0, 2, 262151, 0, 3, 327687, 0, 4, 196616, 65536, 2, 262152, 65536, 3, 327688, 65536, 4, 262141, 0, 2, 327677, 0, 3, 393213, 0, 4, 262142, 65536, 2, 327678, 65536, 3, 393214, 65536, 4, 18, 0, 2, 65554, 0, 3, 131090, 0, 4, 19, 65536, 2, 65555, 65536, 3, 131091, 65536, 4, 458766, 131072, 2, 524302, 131072, 3, 589838, 131072, 4, 458767, 196608, 2, 524303, 196608, 3, 589839, 196608, 4, 524291, 786432, 15, 589827, 786432, 16, 524292, 851968, 15, 589828, 851968, 16, 524293, 917504, 15, 589829, 917504, 16, -131067, 786432, 15, -65531, 786432, 16, -131066, 851968, 15, -65530, 851968, 16, -131065, 917504, 15, -65529, 917504, 16, 262156, 0, 15, 327692, 0, 16, 262157, 65536, 15, 327693, 65536, 16, 131065, 0, 15, 196601, 0, 16, 131066, 65536, 15, 196602, 65536, 16, 4, 393216, 15, 65540, 393216, 16, 5, 458752, 15, 65541, 458752, 16, 524306, 655360, 15, 589842, 655360, 16, 524307, 720896, 15, 589843, 720896, 16, 12, 524288, 7, -65523, 589824, 6, 13, 589824, 7, 65549, 589824, 8, 131085, 589824, 9, -131058, 655360, 5, -65522, 655360, 6, 14, 655360, 7, 65550, 655360, 8, 131086, 655360, 9, -65521, 720896, 6, 15, 720896, 7, -131082, 262144, 6, -65546, 262144, 7, -196617, 327680, 5, -131081, 327680, 6, -65545, 327680, 7, -9, 327680, 8, 65527, 327680, 9, -196616, 393216, 5, -131080, 393216, 6, -65544, 393216, 7, -8, 393216, 8, 65528, 393216, 9, -131079, 458752, 6, -65543, 458752, 7)
 
-[node name="player" parent="." instance=ExtResource("1_ja2t5")]
+[node name="Entities" type="Node2D" parent="." groups=["entity_layer"]]
+
+[node name="player" parent="Entities" instance=ExtResource("1_ja2t5")]
 position = Vector2(183, 130)
 
-[node name="Camera2D" parent="." instance=ExtResource("3_aarrx")]
-position = Vector2(320, 180)
-
-[node name="EnemySpawnManager" parent="." instance=ExtResource("5_udeml")]
-time_between_spawns = 1
-
-[node name="DashAbilityUI" parent="." instance=ExtResource("6_btw8a")]
-
-[node name="InventoryUI" parent="." instance=ExtResource("8_sl4df")]
-visible = false
+[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
