@@ -16,7 +16,7 @@ func _ready():
 
 
 func set_weapon(weapon_item: Item):
-	print_debug("Changing weapon: " + weapon_item.item_resource.get_item_info())
+#	print_debug("Changing weapon: " + weapon_item.item_resource.get_item_info())
 	current_item = weapon_item
 	current_weapon_resource = weapon_item.item_resource as WeaponResource
 	current_weapon_controller = weapon_item.item_controller

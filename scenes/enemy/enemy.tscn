@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://gavevpxyamou"]
+[gd_scene load_steps=93 format=3 uid="uid://gavevpxyamou"]
 
 [ext_resource type="Texture2D" uid="uid://bodnnpc6tauim" path="res://scenes/enemy/attack_close/tile036.png" id="1_p756p"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_x73qb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://odlwqfyhvx" path="res://scenes/enemy/attack_close/tile037.png" id="2_el81b"]
 [ext_resource type="PackedScene" uid="uid://d3smxnpy6ppkv" path="res://scenes/components/hurtbox_component.tscn" id="3_1bxcv"]
 [ext_resource type="Texture2D" uid="uid://crcwafc8x61a1" path="res://scenes/enemy/attack_close/tile038.png" id="3_61sg8"]
+[ext_resource type="PackedScene" uid="uid://cgdfb2p72nug8" path="res://scenes/components/armor_component.tscn" id="3_htnpg"]
 [ext_resource type="Texture2D" uid="uid://c0dypwyby5uyx" path="res://scenes/enemy/attack_close/tile039.png" id="4_4crvp"]
 [ext_resource type="Texture2D" uid="uid://5rfkvcw2jhxh" path="res://scenes/enemy/attack_close/tile040.png" id="5_ecaay"]
 [ext_resource type="Texture2D" uid="uid://w3p8swcahp2t" path="res://scenes/enemy/attack_close/tile041.png" id="6_df6vd"]
@@ -392,8 +393,11 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_x73qb")
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_b64ne")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("armor_component") instance=ExtResource("2_b64ne")]
 max_hp = 5
+armor_component = NodePath("../ArmorComponent")
+
+[node name="ArmorComponent" parent="." instance=ExtResource("3_htnpg")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1bxcv")]
 collision_layer = 8

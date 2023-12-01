@@ -1,5 +1,5 @@
 extends Node
 class_name DamageEnums
 
-enum DamageElement {PHYSICAL, FIRE, WATER, WIND, EARTH, LIGHTNING, ICE, LIGHT, DARK}
-enum DamageType {SLASH, PIERCE, BLUNT}
+enum DamageElement {Physical, Fire, Water, Wind, Earth, Lightning, Ice, Light, Dark}
+enum DamageType {Slash, Pierce, Blunt}

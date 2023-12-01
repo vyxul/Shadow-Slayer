@@ -8,6 +8,9 @@ signal hp_healed(new_current_hp: int, max_hp: int)
 @export var max_hp: int = 1
 var current_hp: int
 
+@export_group("ArmorComponent Set Up")
+@export var armor_component: ArmorComponent
+
 func _ready():
 	current_hp = max_hp
 
@@ -26,11 +29,17 @@ func damage(damage_stats: Dictionary):
 	var damage_element = damage_stats["damage_element"]
 	var damage_type    = damage_stats["damage_type"]
 	
-	print_debug("current hp = %d, damage = %d" % [current_hp, damage_amount])
+#	print_debug("current hp = %d, damage = %d, damage_element = %d, damage_type = %d" \
+#			   % [current_hp, damage_amount, damage_element, damage_type])
 	
-	# if entity has an armor component, use an adjusted damage amount, otherwise use the raw damage amount
-	# put this in later when i have armor component set up
-	current_hp -= damage_amount
+	var adjusted_damage_amount = damage_amount
+	# if entity has an armor component, use an adjusted damage amount, 
+	# otherwise use the raw damage amount
+	if armor_component:
+		adjusted_damage_amount = armor_component.adjust_damage(damage_stats)
+#		print_debug("adjusted damage: %d" % adjusted_damage_amount)
+	
+	current_hp -= adjusted_damage_amount
 	check_hp()
 	hp_lost.emit(current_hp, max_hp)
 
