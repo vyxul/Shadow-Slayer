@@ -7,7 +7,7 @@
 custom_minimum_size = Vector2(42, 43)
 offset_right = 40.0
 offset_bottom = 41.0
-pivot_offset = Vector2(16, 16)
+pivot_offset = Vector2(21, 21.5)
 script = ExtResource("1_53utd")
 
 [node name="BorderRect" type="ColorRect" parent="."]

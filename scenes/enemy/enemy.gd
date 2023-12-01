@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @export var move_speed = 25
 @export var attack_distance = 30  # Stopping distance for attacking
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var health_component = $HealthComponent
+@onready var hurtbox_component = $HurtboxComponent
+@onready var raycasts = %RayCastContainer.get_children()
+
 var alive = true
 var player
 var can_move = false
-
-@onready var raycasts = %RayCastContainer.get_children()
-@onready var health_component = $HealthComponent
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,9 +69,20 @@ func avoid_other_enemies():
 
 
 func get_player():
-	player = get_tree().get_nodes_in_group("player")[0] as Node2D
-	
+	player = get_tree().get_first_node_in_group("player")
+
+
+func dying():
+	alive = false
+	$HurtboxComponent/CollisionShape2D.set_deferred("disabled", true)
+	# can uncomment below line to allow the movement collision to be
+	# disabled on death also
+#	$CollisionShape2D.set_deferred("disabled", true)
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("die")
+	await animated_sprite_2d.animation_finished
+	queue_free()
 
 
 func on_died():
-	queue_free()
+	dying()

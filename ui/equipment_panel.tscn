@@ -8,6 +8,7 @@
 custom_minimum_size = Vector2(200, 400)
 offset_right = 198.0
 offset_bottom = 381.0
+pivot_offset = Vector2(100, 200)
 theme_type_variation = &"PanelContainerBig"
 script = ExtResource("1_gscc3")
 

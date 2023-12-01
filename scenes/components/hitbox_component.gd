@@ -2,8 +2,9 @@ extends Area2D
 class_name HitboxComponent
 
 
-func _on_area_entered(area):
-	if !area is HurtboxComponent:
+func _on_area_entered(area: Area2D):
+	print_debug(area.name)
+	if not area is HurtboxComponent:
 		return
 	
 	# get the damage stats from the parent node

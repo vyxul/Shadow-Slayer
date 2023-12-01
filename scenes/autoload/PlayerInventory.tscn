@@ -8,5 +8,5 @@
 
 [node name="PlayerInventory" type="Node"]
 script = ExtResource("1_fnxhk")
-test_array = Array[Resource("res://resources/items/item.gd")]([ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("5_70hfu")])
+test_array = Array[Resource("res://resources/items/item.gd")]([ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("5_70hfu"), ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("4_oly6q"), ExtResource("5_70hfu")])
 test_item = ExtResource("4_oly6q")

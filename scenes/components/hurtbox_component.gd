@@ -23,5 +23,6 @@ func damage(damage_stats: Dictionary):
 	var format_string = "%d"
 	floating_text_instance.start(format_string % damage_amount)
 
+
 func heal(heal_amount: int):
 	health_component.heal(heal_amount)

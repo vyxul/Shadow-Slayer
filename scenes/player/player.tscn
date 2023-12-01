@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_u607v")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 10.0
 }, {
@@ -165,8 +165,10 @@ shape = SubResource("CircleShape2D_qp1kj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_2fpqt")
-animation = &"run"
+animation = &"hit"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="WeaponOriginPoint" type="Marker2D" parent="AnimatedSprite2D"]
 position = Vector2(1, 6)
