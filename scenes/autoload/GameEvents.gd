@@ -1,11 +1,8 @@
 extends Node
 
-
-signal item_selected(item: Item)
-
 # signals for changing player equipment
 signal equipped_weapon_changed(item: Item)
-signal equipped_armor_changed(item: Item)
+signal equipped_armor_changed(item: Item, armor_slot: int)
 signal equipped_accessory_changed(item: Item, accessory_slot: int)
 signal equipped_ability_changed(item: Item, ability_slot: int)
 
@@ -20,17 +17,13 @@ var mouse_over_ui: bool = false
 var mouse_overlapping_ui_count: int = 0
 
 
-func emit_item_selected(item: Item):
-	item_selected.emit(item)
-
-
 # Functions to signal that the players current equipment has changed
 func emit_equipped_weapon_changed(item: Item):
 	equipped_weapon_changed.emit(item)
 
 
-func emit_equipped_armor_changed(item: Item):
-	equipped_armor_changed.emit(item)
+func emit_equipped_armor_changed(item: Item, armor_slot: int):
+	equipped_armor_changed.emit(item, armor_slot)
 
 
 func emit_equipped_accessory_changed(item: Item, accessory_slot: int):

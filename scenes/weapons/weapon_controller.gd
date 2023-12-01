@@ -11,7 +11,6 @@ var current_weapon_controller: PackedScene = null
 
 func _ready():
 	set_weapon(temp_item_resource)
-	GameEvents.item_selected.connect(set_weapon)
 	GameEvents.equipped_weapon_changed.connect(set_weapon)
 
 
