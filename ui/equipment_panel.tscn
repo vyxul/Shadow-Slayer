@@ -43,6 +43,7 @@ default_texture = ExtResource("3_cjrdp")
 is_removable = true
 is_draggable = true
 is_editable = true
+is_type_required = true
 item_type_required = 2
 armor_type_required = 1
 
@@ -53,6 +54,7 @@ default_texture = ExtResource("4_00gc7")
 is_removable = true
 is_draggable = true
 is_editable = true
+is_type_required = true
 item_type_required = 2
 armor_type_required = 2
 
@@ -63,6 +65,7 @@ default_texture = ExtResource("5_nla6b")
 is_removable = true
 is_draggable = true
 is_editable = true
+is_type_required = true
 item_type_required = 2
 armor_type_required = 3
 
@@ -73,6 +76,7 @@ default_texture = ExtResource("6_uq4mv")
 is_removable = true
 is_draggable = true
 is_editable = true
+is_type_required = true
 item_type_required = 2
 armor_type_required = 4
 

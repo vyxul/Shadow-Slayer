@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccessoryResource" load_steps=3 format=3 uid="uid://qdxwgvo7enfe"]
+
+[ext_resource type="Texture2D" uid="uid://cvu6cs43w3ujp" path="res://assets/art/ui/ring_1.png" id="1_51hih"]
+[ext_resource type="Script" path="res://resources/items/accessories/accessory_resource.gd" id="1_mwpbb"]
+
+[resource]
+script = ExtResource("1_mwpbb")
+accessory_type = 1
+item_type = 3
+icon_texture = ExtResource("1_51hih")
+item_rarity = 0
+item_id = 9
+item_name = "Ring"
+item_description = ""

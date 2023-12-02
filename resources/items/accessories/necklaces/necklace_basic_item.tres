@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://e73m4f6ej4v8"]
+
+[ext_resource type="Resource" uid="uid://ctrjv7o6gqceb" path="res://resources/items/accessories/necklaces/necklace_basic_resource.tres" id="1_ijbie"]
+[ext_resource type="Script" path="res://resources/items/item.gd" id="1_ljfi2"]
+
+[resource]
+script = ExtResource("1_ljfi2")
+item_resource = ExtResource("1_ijbie")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://p2nusy7lmjf8"]
+
+[ext_resource type="Script" path="res://resources/items/item.gd" id="1_l0qwo"]
+[ext_resource type="Resource" uid="uid://qdxwgvo7enfe" path="res://resources/items/accessories/rings/ring_basic_resource.tres" id="1_py7ho"]
+
+[resource]
+script = ExtResource("1_l0qwo")
+item_resource = ExtResource("1_py7ho")

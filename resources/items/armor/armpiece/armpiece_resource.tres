@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=3 format=3 uid="uid://b5mudpxnld0cy"]
+
+[ext_resource type="Texture2D" uid="uid://10nkaihw3i14" path="res://assets/art/ui/gauntlets.png" id="1_51t3a"]
+[ext_resource type="Script" path="res://resources/items/armor/armor_resource.gd" id="2_mdopv"]
+
+[resource]
+script = ExtResource("2_mdopv")
+armor_type = 3
+armor_defense = 0
+physical_resist = 0.0
+fire_resist = 0.0
+water_resist = 0.0
+wind_resist = 0.0
+earth_resist = 0.0
+lightning_resist = 0.0
+ice_resist = 0.0
+light_resist = 0.0
+dark_resist = 0.0
+slash_resist = 0.0
+pierce_resist = 0.0
+blunt_resist = 0.0
+item_type = 2
+icon_texture = ExtResource("1_51t3a")
+item_rarity = 0
+item_id = 7
+item_name = "Armpiece"
+item_description = ""

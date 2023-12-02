@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dmaicuqhvcdvm"]
+
+[ext_resource type="Resource" uid="uid://36y1cnvo8vox" path="res://resources/items/armor/legpiece/legpiece_resource.tres" id="1_qrvrt"]
+[ext_resource type="Script" path="res://resources/items/item.gd" id="2_b3j2q"]
+
+[resource]
+script = ExtResource("2_b3j2q")
+item_resource = ExtResource("1_qrvrt")

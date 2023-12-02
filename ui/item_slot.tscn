@@ -14,7 +14,7 @@ script = ExtResource("1_53utd")
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 mouse_filter = 1
-color = Color(0.239216, 0.239216, 0.239216, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="FillRect" type="ColorRect" parent="BorderRect"]
 custom_minimum_size = Vector2(32, 32)

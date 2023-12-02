@@ -26,16 +26,22 @@ var is_armor_resource: bool = false
 var is_accessory_resource: bool = false
 var is_ability_resource: bool = false
 
+var transparency_color = Color(1, 1, 1, .392)
+
 func _ready():
 	if slot_empty:
+		# if no default texture set, then make it blank
 		if !default_texture:
 			item_sprite.texture = null
 		
+		# else, set the default texture and make it transparent
 		else:
 			item_sprite.texture = default_texture
+			item_sprite.self_modulate = transparency_color
 
 		fill_rect.color = Color.DARK_GRAY
 		border_rect.color = Color.BLACK
+		
 #	set_item(temp_item)
 
 
@@ -44,6 +50,8 @@ func set_item(item: Item):
 	item_sprite.texture = item.item_resource.icon_texture
 	slot_empty = false
 	fill_rect.color = Color.WHITE
+	# set the alpha to 1 to not be transparent
+	item_sprite.self_modulate = Color(1, 1, 1, 1)
 	
 	# change the look of the item slot depending on what type of item it is
 	# can change this later to use the type property enums instead of class type
@@ -62,6 +70,8 @@ func remove_item():
 	slot_empty = false
 	fill_rect.color = Color.DARK_GRAY
 	border_rect.color = Color.BLACK
+	# set the alpha to a good number to look transparent
+	item_sprite.self_modulate = transparency_color
 	
 	if default_texture:
 		item_sprite.texture = default_texture
@@ -112,7 +122,17 @@ func _can_drop_data(at_position, data):
 	# for now just need armor to match
 	match(item_type_required):
 		ItemTypeEnums.ItemType.Armor:
-			return false
+			if armor_type_required == item_resource.armor_type:
+				return true
+			else:
+				return false
+		ItemTypeEnums.ItemType.Accessory:
+			if accessory_type_required == item_resource.accessory_type:
+				return true
+			else:
+				return false
+		ItemTypeEnums.ItemType.Ability:
+			return true
 		_:
 			return true
 

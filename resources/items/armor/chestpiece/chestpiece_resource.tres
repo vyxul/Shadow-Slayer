@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=3 format=3 uid="uid://dal44kus83c5"]
+
+[ext_resource type="Script" path="res://resources/items/armor/armor_resource.gd" id="1_0hbmr"]
+[ext_resource type="Texture2D" uid="uid://6s63arfbv7ci" path="res://assets/art/ui/armor.png" id="1_mfxtt"]
+
+[resource]
+script = ExtResource("1_0hbmr")
+armor_type = 2
+armor_defense = 0
+physical_resist = 0.0
+fire_resist = 0.0
+water_resist = 0.0
+wind_resist = 0.0
+earth_resist = 0.0
+lightning_resist = 0.0
+ice_resist = 0.0
+light_resist = 0.0
+dark_resist = 0.0
+slash_resist = 0.0
+pierce_resist = 0.0
+blunt_resist = 0.0
+item_type = 2
+icon_texture = ExtResource("1_mfxtt")
+item_rarity = 0
+item_id = 6
+item_name = "Chestpiece"
+item_description = ""

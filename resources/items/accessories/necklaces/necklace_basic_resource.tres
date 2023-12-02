@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccessoryResource" load_steps=3 format=3 uid="uid://ctrjv7o6gqceb"]
+
+[ext_resource type="Texture2D" uid="uid://cic4wfk4erwsy" path="res://assets/art/ui/amulet.png" id="1_4wstq"]
+[ext_resource type="Script" path="res://resources/items/accessories/accessory_resource.gd" id="1_hnnha"]
+
+[resource]
+script = ExtResource("1_hnnha")
+accessory_type = 2
+item_type = 3
+icon_texture = ExtResource("1_4wstq")
+item_rarity = 0
+item_id = 10
+item_name = "Amulet"
+item_description = ""

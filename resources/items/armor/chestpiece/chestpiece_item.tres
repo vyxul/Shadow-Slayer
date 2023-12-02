@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://clouji4i6a65w"]
+
+[ext_resource type="Resource" uid="uid://dal44kus83c5" path="res://resources/items/armor/chestpiece/chestpiece_resource.tres" id="1_ff405"]
+[ext_resource type="Script" path="res://resources/items/item.gd" id="2_2vvnl"]
+
+[resource]
+script = ExtResource("2_2vvnl")
+item_resource = ExtResource("1_ff405")

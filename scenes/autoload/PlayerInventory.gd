@@ -54,9 +54,11 @@ func add_item(item: Item):
 	var inventory_array = null
 	# can do a match statement here later when we have more item types
 #	print_debug("ADD: " + item_resource.get_item_info())
-	if item_resource is WeaponResource:
+#	if item_resource is WeaponResource:
 #		print_debug("Classified as a weapon")
-		inventory_array = weapon_inventory
+	inventory_array = weapon_inventory
+#	else:
+#		return
 	
 	inventory_array.append(item)
 	sort_inventory(inventory_array)
