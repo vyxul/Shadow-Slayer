@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cystcde1ovn70"]
+[gd_scene load_steps=13 format=3 uid="uid://cystcde1ovn70"]
 
 [ext_resource type="Script" path="res://scenes/autoload/PlayerInventory.gd" id="1_fnxhk"]
 [ext_resource type="Resource" uid="uid://dqknu6ge6507c" path="res://resources/items/weapons/weapon_resources/axe/axe_item.tres" id="2_64p37"]
@@ -11,8 +11,9 @@
 [ext_resource type="Resource" uid="uid://dmaicuqhvcdvm" path="res://resources/items/armor/legpiece/legpiece_item.tres" id="9_xxq1r"]
 [ext_resource type="Resource" uid="uid://e73m4f6ej4v8" path="res://resources/items/accessories/necklaces/necklace_basic_item.tres" id="10_hx4lq"]
 [ext_resource type="Resource" uid="uid://p2nusy7lmjf8" path="res://resources/items/accessories/rings/ring_basic_item.tres" id="11_51vo8"]
+[ext_resource type="Resource" uid="uid://6llmlgl5mu4n" path="res://resources/items/armor/helmets/helmet_2_item.tres" id="12_56mtg"]
 
 [node name="PlayerInventory" type="Node"]
 script = ExtResource("1_fnxhk")
-test_array = Array[Resource("res://resources/items/item.gd")]([ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("5_70hfu"), ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("4_oly6q"), ExtResource("5_70hfu"), ExtResource("2_64p37"), ExtResource("2_64p37"), ExtResource("2_64p37"), ExtResource("6_v8y6j"), ExtResource("7_smjjs"), ExtResource("8_u3d7b"), ExtResource("9_xxq1r"), ExtResource("10_hx4lq"), ExtResource("11_51vo8")])
+test_array = Array[Resource("res://resources/items/item.gd")]([ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("5_70hfu"), ExtResource("2_64p37"), ExtResource("3_hhf44"), ExtResource("4_oly6q"), ExtResource("4_oly6q"), ExtResource("5_70hfu"), ExtResource("2_64p37"), ExtResource("2_64p37"), ExtResource("2_64p37"), ExtResource("6_v8y6j"), ExtResource("7_smjjs"), ExtResource("8_u3d7b"), ExtResource("9_xxq1r"), ExtResource("10_hx4lq"), ExtResource("11_51vo8"), ExtResource("12_56mtg")])
 test_item = ExtResource("4_oly6q")

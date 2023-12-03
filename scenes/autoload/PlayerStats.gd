@@ -16,7 +16,7 @@ var stats = {
 # stats for reducing incoming damage
 var defenses = {
 	# flat amount taken away from damage after resistance calculation
-	"defense": 0,
+	"armor_defense": 0,
 	
 	# Resistances (-1 to 1)
 	# Damage Element Resistances
@@ -66,8 +66,10 @@ var status_effects = {}
 
 func set_weapon(item: Item):
 	# if the weapon was removed from equip screen
-	# let the weapon controller handle it
+	# remove the current weapon from dictionary and let
+	# let the weapon controller handle the rest
 	if item == null:
+		equipment.current_weapon = null
 		current_weapon_changed.emit(item)
 		return
 	
@@ -88,27 +90,179 @@ func set_weapon(item: Item):
 	equipment.current_weapon = item
 	current_weapon_changed.emit(item)
 
-# need to make the rest of the setter for the equipment after i make the resources
+
+func adjust_defenses(item: Item, equipping: bool = true):
+	var item_resource = item.item_resource as ArmorResource
+	# if the item passed in is not an armor resource then return
+	if !item_resource is ArmorResource:
+		print_debug("item was not ArmorResource")
+		return
+	
+	# else it is an item and can adjust the stats
+	var equip_control = 1 if equipping else -1
+	var string = "Equipping: " if equipping else "Unequipping: "
+	print_debug(string + item_resource.get_item_info())
+	
+	# manually add the stats from the item to the dictionary
+	# using the equip_control as modifier for equipping/unequipping the stat changes
+	defenses.armor_defense    += (equip_control * item_resource.armor_defense)
+	defenses.physical_resist += (equip_control * item_resource.physical_resist)
+	defenses.fire_resist      += (equip_control * item_resource.fire_resist)
+	defenses.water_resist     += (equip_control * item_resource.water_resist)
+	defenses.wind_resist      += (equip_control * item_resource.wind_resist)
+	defenses.earth_resist     += (equip_control * item_resource.earth_resist)
+	defenses.lightning_resist += (equip_control * item_resource.lightning_resist)
+	defenses.ice_resist       += (equip_control * item_resource.ice_resist)
+	defenses.light_resist     += (equip_control * item_resource.light_resist)
+	defenses.dark_resist      += (equip_control * item_resource.dark_resist)
+	defenses.slash_resist     += (equip_control * item_resource.slash_resist)
+	defenses.pierce_resist    += (equip_control * item_resource.pierce_resist)
+	defenses.blunt_resist     += (equip_control * item_resource.blunt_resist)
+	
+	print_debug("Defenses: " + str(defenses))
+
+
+# set functions for all armors are pretty much the same, just keeping them as
+# different names to make understanding how each one differs easier
 func set_helmet(item: Item):
-	pass
+	# if item was removed from equipment screen
+	# check if current armor slot had anything yet and if yes then remove stats
+	# in any case, return after that check
+	if item == null:
+		if equipment.current_helmet:
+			adjust_defenses(equipment.current_helmet, false)
+			equipment.current_helmet = null
+		return
+	
+	# check if passed in item is not armor
+	var item_resource = item.item_resource
+#	print_debug(item_resource.get_item_info())
+	if !item_resource is ArmorResource:
+		print_debug("failed armor_resource check")
+		return
+	
+	# check if the passed in item is the same as current
+	if equipment.current_helmet == item:
+		print_debug("failed current_helmet check")
+		return
+	
+	# at this point, it passed enough tests	
+	# check if player had armor equipped already and remove the stats from it
+	if equipment.current_helmet != null:
+		adjust_defenses(equipment.current_helmet, false)
+	
+	# add the passed in armor to dictionary and add the stats
+	equipment.current_helmet = item
+	adjust_defenses(item)
+
 
 func set_chestpiece(item: Item):
-	pass
+	# if item was removed from equipment screen
+	# check if current armor slot had anything yet and if yes then remove stats
+	# in any case, return after that check
+	if item == null:
+		if equipment.current_chestpiece:
+			adjust_defenses(equipment.current_chestpiece, false)
+			equipment.current_chestpiece = null
+		return
+	
+	# check if passed in item is not armor
+	var item_resource = item.item_resource
+#	print_debug(item_resource.get_item_info())
+	if !item_resource is ArmorResource:
+		print_debug("failed armor_resource check")
+		return
+	
+	# check if the passed in item is the same as current
+	if equipment.current_chestpiece == item:
+		print_debug("failed current_chestpiece check")
+		return
+	
+	# at this point, it passed enough tests	
+	# check if player had armor equipped already and remove the stats from it
+	if equipment.current_chestpiece != null:
+		adjust_defenses(equipment.current_chestpiece, false)
+	
+	# add the passed in armor to dictionary and add the stats
+	equipment.current_chestpiece = item
+	adjust_defenses(item)
+
 
 func set_armpiece(item: Item):
-	pass
+	# if item was removed from equipment screen
+	# check if current armor slot had anything yet and if yes then remove stats
+	# in any case, return after that check
+	if item == null:
+		if equipment.current_armpiece:
+			adjust_defenses(equipment.current_armpiece, false)
+			equipment.current_armpiece = null
+		return
+	
+	# check if passed in item is not armor
+	var item_resource = item.item_resource
+#	print_debug(item_resource.get_item_info())
+	if !item_resource is ArmorResource:
+		print_debug("failed armor_resource check")
+		return
+	
+	# check if the passed in item is the same as current
+	if equipment.current_armpiece == item:
+		print_debug("failed current_armpiece check")
+		return
+	
+	# at this point, it passed enough tests	
+	# check if player had armor equipped already and remove the stats from it
+	if equipment.current_armpiece != null:
+		adjust_defenses(equipment.current_armpiece, false)
+	
+	# add the passed in armor to dictionary and add the stats
+	equipment.current_armpiece = item
+	adjust_defenses(item)
+
 
 func set_legpiece(item: Item):
-	pass
+	# if item was removed from equipment screen
+	# check if current armor slot had anything yet and if yes then remove stats
+	# in any case, return after that check
+	if item == null:
+		if equipment.current_legpiece:
+			adjust_defenses(equipment.current_legpiece, false)
+			equipment.current_legpiece = null
+		return
+	
+	# check if passed in item is not armor
+	var item_resource = item.item_resource
+#	print_debug(item_resource.get_item_info())
+	if !item_resource is ArmorResource:
+		print_debug("failed armor_resource check")
+		return
+	
+	# check if the passed in item is the same as current
+	if equipment.current_legpiece == item:
+		print_debug("failed current_legpiece check")
+		return
+	
+	# at this point, it passed enough tests	
+	# check if player had armor equipped already and remove the stats from it
+	if equipment.current_legpiece != null:
+		adjust_defenses(equipment.current_legpiece, false)
+	
+	# add the passed in armor to dictionary and add the stats
+	equipment.current_legpiece = item
+	adjust_defenses(item)
+
 
 func set_ring(item: Item, ring_slot: int):
 	pass
 
+
 func set_necklace(item: Item):
 	pass
 
+
 func set_ability(item: Item, ability_slot: int):
 	pass
+
 
 # set up later when we have a save system
 func save():

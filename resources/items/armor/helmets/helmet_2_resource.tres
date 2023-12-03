@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=3 format=3 uid="uid://dxnvlxqftvuk1"]
+
+[ext_resource type="Texture2D" uid="uid://b3vg3rmhhll3y" path="res://assets/art/ui/helmet.png" id="1_o6du2"]
+[ext_resource type="Script" path="res://resources/items/armor/armor_resource.gd" id="2_c6yvj"]
+
+[resource]
+script = ExtResource("2_c6yvj")
+armor_type = 1
+armor_defense = 1
+physical_resist = 1.0
+fire_resist = 1.0
+water_resist = 1.0
+wind_resist = 1.0
+earth_resist = 1.0
+lightning_resist = 1.0
+ice_resist = 1.0
+light_resist = 1.0
+dark_resist = 1.0
+slash_resist = 1.0
+pierce_resist = 1.0
+blunt_resist = 1.0
+item_type = 2
+icon_texture = ExtResource("1_o6du2")
+item_rarity = 0
+item_id = 10
+item_name = "Helmet 2"
+item_description = ""

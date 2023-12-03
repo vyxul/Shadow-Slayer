@@ -66,8 +66,11 @@ func set_item(item: Item):
 
 
 func remove_item():
+	if slot_empty:
+		return
+	
 	current_item = null
-	slot_empty = false
+	slot_empty = true
 	fill_rect.color = Color.DARK_GRAY
 	border_rect.color = Color.BLACK
 	# set the alpha to a good number to look transparent
@@ -79,6 +82,9 @@ func remove_item():
 		item_sprite.texture = null
 	
 	# let relevant components know that item was removed from slot
+	# need to differeniate between weapon and armor/accessory resources
+	# weapon can just remove right away
+	# armor/accessory needs to remove stats before it goes away
 	item_updated.emit(null)
 
 
@@ -148,5 +154,5 @@ func _on_gui_input(event: InputEvent):
 			var item_resource = current_item.item_resource
 
 	if event.is_action_pressed("right_click"):
-		if is_removable and current_item:
+		if is_removable and !slot_empty:
 			remove_item()

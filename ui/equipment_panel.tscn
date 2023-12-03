@@ -197,4 +197,8 @@ DMG
 Weapon Stats"
 autowrap_mode = 1
 
+[connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer/HelmetSlot" to="." method="_on_helmet_slot_item_updated"]
+[connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer/ChestSlot" to="." method="_on_chest_slot_item_updated"]
+[connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer/ArmSlot" to="." method="_on_arm_slot_item_updated"]
+[connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Armor_VBoxContainer/LegsSlot" to="." method="_on_legs_slot_item_updated"]
 [connection signal="item_updated" from="MarginContainer/VBoxContainer/Equipment_HBoxContainer/Accessory_VBoxContainer/WeaponSlot" to="." method="_on_weapon_slot_item_updated"]
