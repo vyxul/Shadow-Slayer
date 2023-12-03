@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://1rljgawdiaep"]
+[gd_scene load_steps=38 format=3 uid="uid://1rljgawdiaep"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7jj5m"]
+[ext_resource type="PackedScene" uid="uid://mciw8hmudt13" path="res://scenes/player/components/player_hurtbox_component.tscn" id="2_qnaty"]
 [ext_resource type="Texture2D" uid="uid://dipqlki17yrsd" path="res://scenes/player/die/tile000.png" id="13_fva5n"]
 [ext_resource type="Texture2D" uid="uid://2nvgh4ub6xge" path="res://scenes/player/hit/tile000.png" id="14_b4evf"]
 [ext_resource type="Texture2D" uid="uid://b04pp62gnq0pq" path="res://scenes/player/die/tile001.png" id="14_b7wa4"]
@@ -33,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://s2u0l2h3g4n4" path="res://scenes/player/run/tile006.png" id="31_njjsr"]
 [ext_resource type="Texture2D" uid="uid://bg5ql7lsgw8jv" path="res://scenes/player/run/tile007.png" id="32_3dwwh"]
 [ext_resource type="PackedScene" uid="uid://uurddiox0nec" path="res://scenes/weapons/weapon_controller.tscn" id="33_peuwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mtnf"]
+radius = 4.12311
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp1kj"]
 radius = 5.0
@@ -158,17 +162,23 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_7jj5m")
 
+[node name="PlayerHurtboxComponent" parent="." instance=ExtResource("2_qnaty")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_8mtnf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.115)
 shape = SubResource("CircleShape2D_qp1kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2fpqt")
-animation = &"hit"
+animation = &"run"
 autoplay = "idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="WeaponOriginPoint" type="Marker2D" parent="AnimatedSprite2D"]
 position = Vector2(1, 6)

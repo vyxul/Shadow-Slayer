@@ -1,5 +1,18 @@
 extends Node
 
+# stat signals
+# hp signals
+signal player_died
+signal player_hp_lost(damage_taken: int, current_hp: int, max_hp: int)
+signal player_hp_healed(health_healed: int, current_hp: int, max_hp: int)
+signal player_hp_changed(current_hp: int, max_hp: int)
+# mana signals
+signal player_mana_empty
+signal player_mana_lost(mana_used: int, current_mana: int, max_mana: int)
+signal player_mana_gained(mana_gained: int, current_mana: int, max_mana: int)
+signal player_mana_changed(current_mana: int, max_mana: int)
+
+# equipment signals
 signal current_weapon_changed(item: Item)
 
 # general player stats
@@ -63,7 +76,195 @@ var equipment = {
 # (dots, time based buffs, etc)
 var status_effects = {}
 
+# stat functions
+# hp related functions
+func get_current_hp() -> int:
+	return stats.current_hp
 
+
+func check_hp():
+	# if hp at 0, send died signal for parent entity to queue free
+	if stats.current_hp <= 0:
+		player_died.emit()
+		
+	# clamp the current hp within bounds of 0 <--> max hp
+	stats.current_hp = clamp(stats.current_hp, 0, stats.max_hp)
+
+
+# pass in the amount you want the max hp to change by
+func change_max_hp(hp_amount: int):
+	# if hp_amount is 0, then function has no use, return
+	if hp_amount == 0:
+		return
+	
+	stats.max_hp += hp_amount
+	# ensure that max hp doesnt go below 1
+	stats.max_hp = max(stats.max_hp, 1)
+	# if max hp went up, make current hp go up by same amount
+	if hp_amount > 0:
+		stats.current_hp += hp_amount
+		# check_hp shouldn't really do anything here but just leaving it just in case
+		check_hp()
+	# else max hp went down
+	else:
+		# if max hp < current hp, make current hp = max hp
+		stats.max_hp += hp_amount
+		if stats.max_hp < stats.current_hp:
+			stats.current_hp = stats.max_hp
+		# else leave current hp at where it is
+		
+	# emit signal that max hp changed
+	player_hp_changed.emit(stats.current_hp, stats.max_hp)
+
+
+func damage(damage_stats: Dictionary) -> int:
+	print_debug("reached playerstats.damage()")
+	var damage_amount  = damage_stats["damage"]
+	var damage_element = damage_stats["damage_element"]
+	var damage_type    = damage_stats["damage_type"]
+	
+#	print_debug("current hp = %d, damage = %d, damage_element = %d, damage_type = %d" \
+#			   % [current_hp, damage_amount, damage_element, damage_type])
+	
+	var adjusted_damage_amount = damage_amount
+	
+	adjusted_damage_amount = adjust_damage(damage_stats)
+#	print_debug("adjusted damage: %d" % adjusted_damage_amount)
+	
+	stats.current_hp -= adjusted_damage_amount
+	check_hp()
+	player_hp_lost.emit(adjusted_damage_amount, stats.current_hp, stats.max_hp)
+	
+	return adjusted_damage_amount
+
+
+func heal(heal_amount: int):
+	stats.current_hp += heal_amount
+	check_hp()
+	player_hp_healed.emit(heal_amount, stats.current_hp, stats.max_hp)
+
+# mana related functions
+func get_current_mana() -> int:
+	return stats.current_mana
+
+
+func check_mana():
+	# if hp at 0, send died signal for parent entity to queue free
+	if stats.current_mana <= 0:
+		player_mana_empty.emit()
+		
+	# clamp the current hp within bounds of 0 <--> max hp
+	stats.current_mana = clamp(stats.current_mana, 0, stats.max_mana)
+
+
+# pass in the amount you want the max hp to change by
+func change_max_mana(mana_amount: int):
+	# if mana_amount is 0, then function has no use, return
+	if mana_amount == 0:
+		return
+	
+	stats.max_mana += mana_amount
+	# ensure that max hp doesnt go below 0
+	stats.max_mana = max(stats.max_mana, 0)
+	# if max hp went up, make current hp go up by same amount
+	if mana_amount > 0:
+		stats.current_mana += mana_amount
+		# check_hp shouldn't really do anything here but just leaving it just in case
+		check_mana()
+	# else max hp went down
+	else:
+		# if max hp < current hp, make current hp = max hp
+		stats.max_mana += mana_amount
+		if stats.max_mana < stats.current_mana:
+			stats.current_mana = stats.max_mana
+		# else leave current hp at where it is
+		
+	# emit signal that max hp changed
+	player_mana_changed.emit(stats.current_mana, stats.max_mana)
+
+
+# takes in only positive values to subtract from current mana
+func mana_use(mana_use_amount: int):
+	if mana_use_amount <= 0:
+		return
+	
+	stats.current_mana -= mana_use_amount
+	stats.current_mana = max(stats.current_mana, 0)
+	if stats.current_mana == 0:
+		player_mana_empty.emit()
+		
+	player_mana_lost.emit(mana_use_amount, stats.current_mana, stats.max_mana)
+
+
+func mana_gain(mana_gain_amount: int):
+	if mana_gain_amount <= 0:
+		return
+	
+	stats.current_mana += mana_gain_amount
+	stats.current_mana = min(stats.current_mana, stats.max_mana)
+	
+	player_mana_gained.emit(mana_gain_amount, stats.current_mana, stats.max_mana)
+
+
+# calculates the incoming damage adjusted amount based on player defenses
+func adjust_damage(damage_stats: Dictionary) -> int:
+	var damage_amount  = damage_stats["damage"]
+	var damage_element = damage_stats["damage_element"]
+	var damage_type    = damage_stats["damage_type"]
+	
+	var adjusted_damage_amount = float(damage_amount)
+	
+	# get the elemental resistance of the armor for the incoming damage
+	var element_resist = 0.0
+	match(damage_element):
+		DamageEnums.DamageElement.Physical:
+			element_resist = defenses.physical_resist
+		DamageEnums.DamageElement.Fire:
+			element_resist = defenses.fire_resist
+		DamageEnums.DamageElement.Water:
+			element_resist = defenses.water_resist
+		DamageEnums.DamageElement.Wind:
+			element_resist = defenses.wind_resist
+		DamageEnums.DamageElement.Earth:
+			element_resist = defenses.earth_resist
+		DamageEnums.DamageElement.Lightning:
+			element_resist = defenses.lightning_resist
+		DamageEnums.DamageElement.Ice:
+			element_resist = defenses.ice_resist
+		DamageEnums.DamageElement.Light:
+			element_resist = defenses.light_resist
+		DamageEnums.DamageElement.Dark:
+			element_resist = defenses.dark_resist
+			
+	# get the type resistance of the armor for the incoming damage
+	var type_resist = 0.0
+	match(damage_type):
+		DamageEnums.DamageType.Slash:
+			element_resist = defenses.slash_resist
+		DamageEnums.DamageType.Pierce:
+			element_resist = defenses.pierce_resist
+		DamageEnums.DamageType.Blunt:
+			element_resist = defenses.blunt_resist
+	
+	# Formula:
+	# (DMG * ((1 - ElementResist)(1 - TypeResist))) - Defense
+	# get the taken percents of both element and type and multiply them
+	# together to get the total taken damage
+	var element_damage_taken_percent = 1.0 - element_resist
+	var type_damage_taken_percent = 1.0 - type_resist
+	var damage_taken_percent = element_damage_taken_percent * type_damage_taken_percent
+	adjusted_damage_amount *= damage_taken_percent
+	adjusted_damage_amount -= defenses.armor_defense
+#	print_debug("adjusted damage amount before round: %f" % adjusted_damage_amount)
+	adjusted_damage_amount = int(round(adjusted_damage_amount))
+	
+	# to ensure that the attack doesn't end up healing with a negative number
+	adjusted_damage_amount = max(adjusted_damage_amount, 0)
+	
+	return adjusted_damage_amount
+
+
+# equipment functions
 func set_weapon(item: Item):
 	# if the weapon was removed from equip screen
 	# remove the current weapon from dictionary and let
@@ -122,7 +323,8 @@ func adjust_defenses(item: Item, equipping: bool = true):
 	print_debug("Defenses: " + str(defenses))
 
 
-# set functions for all armors are pretty much the same, just keeping them as
+# set functions for all armors are pretty much the same except for which key it
+# affects in equipment dictionary, just keeping them as
 # different names to make understanding how each one differs easier
 func set_helmet(item: Item):
 	# if item was removed from equipment screen

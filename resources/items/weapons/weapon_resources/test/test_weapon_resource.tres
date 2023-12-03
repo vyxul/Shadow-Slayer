@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://d10utcgvy1f5w"]
+
+[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/weapons/sword.png" id="1_8elke"]
+[ext_resource type="Script" path="res://resources/items/weapons/weapon_resource.gd" id="2_qq0gr"]
+
+[resource]
+script = ExtResource("2_qq0gr")
+weapon_type = 1
+weapon_damage = 100
+weapon_damage_element = 0
+weapon_damage_type = 0
+weapon_cooldown_time = 1.5
+weapon_size = 1.5
+weapon_pierce = 2
+weapon_magazine_size = 0
+weapon_magazine_reload_speed = 0.0
+weapon_projectile_speed = 0.0
+item_type = 1
+icon_texture = ExtResource("1_8elke")
+item_rarity = 0
+item_id = 1
+item_name = "Sword - Common"
+item_description = ""

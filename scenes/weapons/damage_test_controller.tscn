@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct05efaxirt34"]
+
+[ext_resource type="Script" path="res://scenes/weapons/damage_test_controller.gd" id="1_3gigs"]
+
+[node name="DamageTestController" type="Node"]
+script = ExtResource("1_3gigs")

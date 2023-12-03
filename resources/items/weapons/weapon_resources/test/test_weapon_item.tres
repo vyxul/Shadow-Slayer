@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dxd22fhrahn17"]
+
+[ext_resource type="PackedScene" uid="uid://btnp1tb0antgc" path="res://scenes/weapons/sword_controller.tscn" id="1_u8yw0"]
+[ext_resource type="Resource" uid="uid://d10utcgvy1f5w" path="res://resources/items/weapons/weapon_resources/test/test_weapon_resource.tres" id="2_wtary"]
+[ext_resource type="Script" path="res://resources/items/item.gd" id="3_cfn4b"]
+
+[resource]
+script = ExtResource("3_cfn4b")
+item_resource = ExtResource("2_wtary")
+item_controller = ExtResource("1_u8yw0")
