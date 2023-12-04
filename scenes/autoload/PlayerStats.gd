@@ -1,6 +1,7 @@
 extends Node
 
 # stat signals
+signal player_stats_changed
 # hp signals
 signal player_died
 signal player_hp_lost(damage_taken: int, current_hp: int, max_hp: int)
@@ -290,6 +291,7 @@ func set_weapon(item: Item):
 #	print_debug("passed set_weapon checks")
 	equipment.current_weapon = item
 	current_weapon_changed.emit(item)
+	player_stats_changed.emit()
 
 
 func adjust_defenses(item: Item, equipping: bool = true):
@@ -307,7 +309,7 @@ func adjust_defenses(item: Item, equipping: bool = true):
 	# manually add the stats from the item to the dictionary
 	# using the equip_control as modifier for equipping/unequipping the stat changes
 	defenses.armor_defense    += (equip_control * item_resource.armor_defense)
-	defenses.physical_resist += (equip_control * item_resource.physical_resist)
+	defenses.physical_resist  += (equip_control * item_resource.physical_resist)
 	defenses.fire_resist      += (equip_control * item_resource.fire_resist)
 	defenses.water_resist     += (equip_control * item_resource.water_resist)
 	defenses.wind_resist      += (equip_control * item_resource.wind_resist)
@@ -320,7 +322,24 @@ func adjust_defenses(item: Item, equipping: bool = true):
 	defenses.pierce_resist    += (equip_control * item_resource.pierce_resist)
 	defenses.blunt_resist     += (equip_control * item_resource.blunt_resist)
 	
+	# if any of the defenses end up at -0, change them to 0
+	# this doesn't affect any calculations, only affects ui when stats are displayed
+	if str(defenses.armor_defense)    == "-0": defenses.armor_defense = 0
+	if str(defenses.physical_resist)  == "-0": defenses.physical_resist = 0
+	if str(defenses.fire_resist)      == "-0": defenses.fire_resist = 0
+	if str(defenses.water_resist)     == "-0": defenses.water_resist = 0
+	if str(defenses.wind_resist)      == "-0": defenses.wind_resist = 0
+	if str(defenses.earth_resist)     == "-0": defenses.earth_resist = 0
+	if str(defenses.lightning_resist) == "-0": defenses.lightning_resist = 0
+	if str(defenses.ice_resist)       == "-0": defenses.ice_resist = 0
+	if str(defenses.light_resist)     == "-0": defenses.light_resist = 0
+	if str(defenses.dark_resist)      == "-0": defenses.dark_resist = 0
+	if str(defenses.slash_resist)     == "-0": defenses.slash_resist = 0
+	if str(defenses.pierce_resist)    == "-0": defenses.pierce_resist = 0
+	if str(defenses.blunt_resist)     == "-0": defenses.blunt_resist = 0
+	
 	print_debug("Defenses: " + str(defenses))
+	player_stats_changed.emit()
 
 
 # set functions for all armors are pretty much the same except for which key it

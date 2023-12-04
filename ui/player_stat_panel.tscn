@@ -1,0 +1,270 @@
+[gd_scene load_steps=2 format=3 uid="uid://cse2opg6kibut"]
+
+[ext_resource type="Script" path="res://ui/player_stat_panel.gd" id="1_lf1af"]
+
+[node name="PlayerStatPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 400)
+offset_right = 8.0
+offset_bottom = 9.0
+theme_type_variation = &"PanelContainerBig"
+script = ExtResource("1_lf1af")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Level_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Level_HBoxContainer"]
+layout_mode = 2
+text = "Level:"
+
+[node name="LevelValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Level_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+
+[node name="HP_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HP_HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "HP:"
+
+[node name="HPValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HP_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10/10"
+
+[node name="Mana_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Mana_HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "MP:"
+
+[node name="MPValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Mana_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10/10"
+
+[node name="Speed_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Speed_HBoxContainer"]
+layout_mode = 2
+text = "Move Speed:"
+
+[node name="SpeedValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Speed_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "120"
+
+[node name="DefenseLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Defenses"
+horizontal_alignment = 1
+
+[node name="Defenses_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0.270588, 0.270588, 0.270588, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Defenses_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Defense"
+
+[node name="DefenseValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Defenses_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="PhysicalResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/PhysicalResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Physical Resist"
+
+[node name="PhysicalResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/PhysicalResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="FireResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/FireResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Fire Resist"
+
+[node name="FireResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/FireResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="WaterResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/WaterResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Water Resist"
+
+[node name="WaterResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/WaterResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="WindResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/WindResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Wind Resist"
+
+[node name="WindResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/WindResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="EarthResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0.556863, 0.235294, 0, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/EarthResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Earth Resist"
+
+[node name="EarthResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/EarthResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="LightningResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0.431373, 0, 0.729412, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/LightningResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Lightning Resist"
+
+[node name="LightningResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/LightningResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="IceResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0.223529, 1, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/IceResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Ice Resist"
+
+[node name="IceResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/IceResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="LightResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 0.141176, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/LightResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Light Resist"
+
+[node name="LightResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/LightResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="DarkResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/DarkResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Dark Resist"
+
+[node name="DarkResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/DarkResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="SlashResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/SlashResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Slash Resist"
+
+[node name="SlashResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/SlashResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="PierceResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/PierceResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Pierce Resist"
+
+[node name="PierceResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/PierceResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="BluntResist_HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/BluntResist_HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Blunt Resist"
+
+[node name="BluntResistValueLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/BluntResist_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
