@@ -15,3 +15,4 @@ func use_weapon():
 func _input(event: InputEvent):
 	if event.is_action_pressed("attack_self"):
 		use_weapon()
+	

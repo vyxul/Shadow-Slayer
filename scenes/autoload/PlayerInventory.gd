@@ -50,15 +50,26 @@ func remove_item(item: Item):
 # will categorize the item into the 4 item_resource child types we have and
 # add the item into the appropriate inventory array
 func add_item(item: Item):
-	var item_resource = item.item_resource
+	var item_resource = item.item_resource as ItemResource
 	var inventory_array = null
 	# can do a match statement here later when we have more item types
 #	print_debug("ADD: " + item_resource.get_item_info())
-#	if item_resource is WeaponResource:
+	if item_resource is WeaponResource:
 #		print_debug("Classified as a weapon")
-	inventory_array = weapon_inventory
-#	else:
-#		return
+		inventory_array = weapon_inventory
+	elif item_resource is ArmorResource:
+#		print_debug("Classified as armor")
+		inventory_array = armor_inventory
+	elif item_resource is AccessoryResource:
+#		print_debug("Classified as an accessory")
+		inventory_array = accessory_inventory
+	elif item_resource is AbilityResource:
+#		print_debug("Classified as an ability")
+		inventory_array = ability_inventory
+	# else its not a recognized item, do not add
+	else:
+#		print_debug("Not any of our establised items")
+		return
 	
 	inventory_array.append(item)
 	sort_inventory(inventory_array)

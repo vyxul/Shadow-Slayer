@@ -32,6 +32,7 @@ window/stretch/mode="viewport"
 [gui]
 
 theme/custom="res://resources/theme/theme.tres"
+theme/custom_font="res://resources/theme/m5x7.ttf"
 
 [input]
 
