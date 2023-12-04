@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4gd7m47l00yj"
-path="res://.godot/imported/short sword.png-a50cf0918dc9c32485704e9798348f05.ctex"
+uid="uid://diccs6qt2j6oo"
+path="res://.godot/imported/axe_one_sided_double_edge.png-aeda8c7fe7335aa4ff5ef7136c02110b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/short sword.png"
-dest_files=["res://.godot/imported/short sword.png-a50cf0918dc9c32485704e9798348f05.ctex"]
+source_file="res://assets/art/items/weapons/axe_one_sided_double_edge.png"
+dest_files=["res://.godot/imported/axe_one_sided_double_edge.png-aeda8c7fe7335aa4ff5ef7136c02110b.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhfvb6eot5vb5"]
 
 [ext_resource type="Script" path="res://scenes/weapons/damage_test_weapon.gd" id="1_epg3h"]
-[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/weapons/sword.png" id="2_dx0aa"]
+[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/items/weapons/sword.png" id="2_dx0aa"]
 [ext_resource type="PackedScene" uid="uid://dlplsmjidvq0l" path="res://scenes/components/hitbox_component.tscn" id="3_p6xho"]
 
 [sub_resource type="Animation" id="Animation_3wuqj"]

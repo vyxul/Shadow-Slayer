@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bjgwy0ifloisv"]
 
 [ext_resource type="Script" path="res://resources/items/weapons/weapon_resource.gd" id="1_1c8ux"]
-[ext_resource type="Texture2D" uid="uid://dwfgs4ilyelr4" path="res://assets/art/weapons/dagger.png" id="2_o6bxw"]
+[ext_resource type="Texture2D" uid="uid://dwfgs4ilyelr4" path="res://assets/art/items/weapons/dagger.png" id="2_o6bxw"]
 
 [resource]
 script = ExtResource("1_1c8ux")

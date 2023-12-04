@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw0asenwyk525"
-path="res://.godot/imported/sword_heavy.png-07f0241bfe2d63a3f58cf85ef4dcfea5.ctex"
+uid="uid://10nkaihw3i14"
+path="res://.godot/imported/gauntlets.png-a25f1d9398ae7111207cb4e8609ea768.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/sword_heavy.png"
-dest_files=["res://.godot/imported/sword_heavy.png-07f0241bfe2d63a3f58cf85ef4dcfea5.ctex"]
+source_file="res://assets/art/items/armor/gauntlets.png"
+dest_files=["res://.godot/imported/gauntlets.png-a25f1d9398ae7111207cb4e8609ea768.ctex"]
 
 [params]
 

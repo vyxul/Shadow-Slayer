@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diccs6qt2j6oo"
-path="res://.godot/imported/axe_one_sided_double_edge.png-a76b6b2614c29a549ea4cd9a5b390a7b.ctex"
+uid="uid://b4s0xqd3umwnv"
+path="res://.godot/imported/healthbarUnder.png-c5988958569cfcdfa1ab5f1655d936ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/axe_one_sided_double_edge.png"
-dest_files=["res://.godot/imported/axe_one_sided_double_edge.png-a76b6b2614c29a549ea4cd9a5b390a7b.ctex"]
+source_file="res://assets/art/ui/healthbarUnder.png"
+dest_files=["res://.godot/imported/healthbarUnder.png-c5988958569cfcdfa1ab5f1655d936ee.ctex"]
 
 [params]
 

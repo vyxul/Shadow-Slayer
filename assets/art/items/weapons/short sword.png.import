@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://10nkaihw3i14"
-path="res://.godot/imported/gauntlets.png-8a9b56aafd9465638ae01de9ee235260.ctex"
+uid="uid://4gd7m47l00yj"
+path="res://.godot/imported/short sword.png-0808e45dadc5b264d6e599ce1d6ed4c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/gauntlets.png"
-dest_files=["res://.godot/imported/gauntlets.png-8a9b56aafd9465638ae01de9ee235260.ctex"]
+source_file="res://assets/art/items/weapons/short sword.png"
+dest_files=["res://.godot/imported/short sword.png-0808e45dadc5b264d6e599ce1d6ed4c2.ctex"]
 
 [params]
 

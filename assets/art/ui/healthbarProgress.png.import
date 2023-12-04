@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb48fqw3s2oy"
-path="res://.godot/imported/axe_one_sided.png-07c2fd5b73cd85d31740081973b13544.ctex"
+uid="uid://bmb4gfhyqiqew"
+path="res://.godot/imported/healthbarProgress.png-5377e577f43a41d76b84c0576be2e4ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/axe_one_sided.png"
-dest_files=["res://.godot/imported/axe_one_sided.png-07c2fd5b73cd85d31740081973b13544.ctex"]
+source_file="res://assets/art/ui/healthbarProgress.png"
+dest_files=["res://.godot/imported/healthbarProgress.png-5377e577f43a41d76b84c0576be2e4ba.ctex"]
 
 [params]
 

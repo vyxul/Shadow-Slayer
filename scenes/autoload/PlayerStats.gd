@@ -90,6 +90,7 @@ func check_hp():
 		
 	# clamp the current hp within bounds of 0 <--> max hp
 	stats.current_hp = clamp(stats.current_hp, 0, stats.max_hp)
+	player_stats_changed.emit()
 
 
 # pass in the amount you want the max hp to change by

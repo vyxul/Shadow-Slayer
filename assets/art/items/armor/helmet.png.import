@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6s63arfbv7ci"
-path="res://.godot/imported/armor.png-406620802bbe5e0ec2f3f375ad800887.ctex"
+uid="uid://b3vg3rmhhll3y"
+path="res://.godot/imported/helmet.png-82f0211e12e8ce11618169d18a69cc57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/armor.png"
-dest_files=["res://.godot/imported/armor.png-406620802bbe5e0ec2f3f375ad800887.ctex"]
+source_file="res://assets/art/items/armor/helmet.png"
+dest_files=["res://.godot/imported/helmet.png-82f0211e12e8ce11618169d18a69cc57.ctex"]
 
 [params]
 

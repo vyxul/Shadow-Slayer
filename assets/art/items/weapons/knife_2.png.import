@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxkwajuqnjjp0"
-path="res://.godot/imported/warhammer.png-628a999233d902856ac92c1b25d32a8a.ctex"
+uid="uid://cquohv81s3su5"
+path="res://.godot/imported/knife_2.png-0d0a2b57b1e01c869f6e43ac7bef66ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/warhammer.png"
-dest_files=["res://.godot/imported/warhammer.png-628a999233d902856ac92c1b25d32a8a.ctex"]
+source_file="res://assets/art/items/weapons/knife_2.png"
+dest_files=["res://.godot/imported/knife_2.png-0d0a2b57b1e01c869f6e43ac7bef66ec.ctex"]
 
 [params]
 

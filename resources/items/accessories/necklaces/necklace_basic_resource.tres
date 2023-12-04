@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AccessoryResource" load_steps=3 format=3 uid="uid://ctrjv7o6gqceb"]
 
-[ext_resource type="Texture2D" uid="uid://cic4wfk4erwsy" path="res://assets/art/ui/amulet.png" id="1_4wstq"]
+[ext_resource type="Texture2D" uid="uid://cic4wfk4erwsy" path="res://assets/art/items/accessories/amulet.png" id="1_4wstq"]
 [ext_resource type="Script" path="res://resources/items/accessories/accessory_resource.gd" id="1_hnnha"]
 
 [resource]

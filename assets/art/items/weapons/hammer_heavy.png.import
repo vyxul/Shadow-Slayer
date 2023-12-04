@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ms5xlqngd36b"
-path="res://.godot/imported/sword_thin.png-71bd4818d0a5b0aa4f01ade43519c9fc.ctex"
+uid="uid://dcx0kqgnvx4ls"
+path="res://.godot/imported/hammer_heavy.png-765f1a6e9b286fce4cbab7596e0b1b56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/sword_thin.png"
-dest_files=["res://.godot/imported/sword_thin.png-71bd4818d0a5b0aa4f01ade43519c9fc.ctex"]
+source_file="res://assets/art/items/weapons/hammer_heavy.png"
+dest_files=["res://.godot/imported/hammer_heavy.png-765f1a6e9b286fce4cbab7596e0b1b56.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcx0kqgnvx4ls"
-path="res://.godot/imported/hammer_heavy.png-0708659a7281d57c02bf03fbea533e03.ctex"
+uid="uid://3u61y40hw3mw"
+path="res://.godot/imported/knife_1.png-b48a7c8d8690357425a9485f25d1d627.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/hammer_heavy.png"
-dest_files=["res://.godot/imported/hammer_heavy.png-0708659a7281d57c02bf03fbea533e03.ctex"]
+source_file="res://assets/art/items/weapons/knife_1.png"
+dest_files=["res://.godot/imported/knife_1.png-b48a7c8d8690357425a9485f25d1d627.ctex"]
 
 [params]
 

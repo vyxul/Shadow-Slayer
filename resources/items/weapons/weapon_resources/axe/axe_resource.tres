@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://b065ak51h4172"]
 
-[ext_resource type="Texture2D" uid="uid://diccs6qt2j6oo" path="res://assets/art/weapons/axe_one_sided_double_edge.png" id="1_43poa"]
+[ext_resource type="Texture2D" uid="uid://diccs6qt2j6oo" path="res://assets/art/items/weapons/axe_one_sided_double_edge.png" id="1_43poa"]
 [ext_resource type="Script" path="res://resources/items/weapons/weapon_resource.gd" id="2_tdt68"]
 
 [resource]

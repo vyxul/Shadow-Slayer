@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://187dtrp620ls"]
 
 [ext_resource type="Script" path="res://scenes/weapons/weapon_scene.gd" id="1_blwol"]
-[ext_resource type="Texture2D" uid="uid://dwfgs4ilyelr4" path="res://assets/art/weapons/dagger.png" id="3_rxbrt"]
+[ext_resource type="Texture2D" uid="uid://dwfgs4ilyelr4" path="res://assets/art/items/weapons/dagger.png" id="3_rxbrt"]
 [ext_resource type="PackedScene" uid="uid://dlplsmjidvq0l" path="res://scenes/components/hitbox_component.tscn" id="4_nwjpu"]
+
 
 [sub_resource type="Animation" id="Animation_3wuqj"]
 length = 0.001

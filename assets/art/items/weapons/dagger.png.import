@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4batxoutxu6v"
-path="res://.godot/imported/ring_2.png-bc4fc836b96d106df036d309d6116fc8.ctex"
+uid="uid://dwfgs4ilyelr4"
+path="res://.godot/imported/dagger.png-69e83a875d0b1ecac09ce2dd7cd6bea4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/ring_2.png"
-dest_files=["res://.godot/imported/ring_2.png-bc4fc836b96d106df036d309d6116fc8.ctex"]
+source_file="res://assets/art/items/weapons/dagger.png"
+dest_files=["res://.godot/imported/dagger.png-69e83a875d0b1ecac09ce2dd7cd6bea4.ctex"]
 
 [params]
 
