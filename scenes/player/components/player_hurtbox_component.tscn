@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scenes/player/components/player_hurtbox_component.gd" id="1_kithn"]
 
 [node name="PlayerHurtboxComponent" type="Area2D"]
+monitoring = false
 script = ExtResource("1_kithn")

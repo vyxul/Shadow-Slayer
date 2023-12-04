@@ -16,14 +16,15 @@ signal player_mana_changed(current_mana: int, max_mana: int)
 # equipment signals
 signal current_weapon_changed(item: Item)
 
-var show_damage_numbers: bool = true
+@export var show_damage_numbers: bool = true
 var floating_text_scene = preload("res://ui/floating_text.tscn")
 
 # general player stats
 var stats = {
 	# maybe have level affect damage by 5% per level?
 	"level": 1,
-	"max_hp": 10,
+	"base_max_hp": 10,
+	"current_max_hp": 10,
 	"current_hp": 10,
 	"max_mana": 10,
 	"current_mana": 10,
@@ -92,7 +93,7 @@ func check_hp():
 		player_died.emit()
 		
 	# clamp the current hp within bounds of 0 <--> max hp
-	stats.current_hp = clamp(stats.current_hp, 0, stats.max_hp)
+	stats.current_hp = clamp(stats.current_hp, 0, stats.current_max_hp)
 	player_stats_changed.emit()
 
 
@@ -102,24 +103,27 @@ func change_max_hp(hp_amount: int):
 	if hp_amount == 0:
 		return
 	
-	stats.max_hp += hp_amount
+	stats.base_max_hp += hp_amount
 	# ensure that max hp doesnt go below 1
-	stats.max_hp = max(stats.max_hp, 1)
+	stats.base_max_hp = max(stats.base_max_hp, 1)
+	stats.current_max_hp = stats.base_max_hp
+	
+	# emit signal that max hp changed
+	# so that any hp modifiers will change current max hp before we do the rest
+	player_hp_changed.emit(stats.current_hp, stats.base_max_hp)
+	
 	# if max hp went up, make current hp go up by same amount
 	if hp_amount > 0:
 		stats.current_hp += hp_amount
-		# check_hp shouldn't really do anything here but just leaving it just in case
-		check_hp()
 	# else max hp went down
 	else:
 		# if max hp < current hp, make current hp = max hp
-		stats.max_hp += hp_amount
-		if stats.max_hp < stats.current_hp:
-			stats.current_hp = stats.max_hp
+		if stats.current_max_hp < stats.current_hp:
+			stats.current_hp = stats.current_max_hp
 		# else leave current hp at where it is
 		
-	# emit signal that max hp changed
-	player_hp_changed.emit(stats.current_hp, stats.max_hp)
+	# double check that current hp is in correct range and use it to emit signal
+	check_hp()
 
 
 func damage(damage_stats: Dictionary) -> int:
@@ -142,7 +146,7 @@ func damage(damage_stats: Dictionary) -> int:
 	
 	stats.current_hp -= adjusted_damage_amount
 	check_hp()
-	player_hp_lost.emit(adjusted_damage_amount, stats.current_hp, stats.max_hp)
+	player_hp_lost.emit(adjusted_damage_amount, stats.current_hp, stats.current_max_hp)
 	
 	
 	# set up the floating text scene
@@ -161,7 +165,7 @@ func damage(damage_stats: Dictionary) -> int:
 func heal(heal_amount: int):
 	stats.current_hp += heal_amount
 	check_hp()
-	player_hp_healed.emit(heal_amount, stats.current_hp, stats.max_hp)
+	player_hp_healed.emit(heal_amount, stats.current_hp, stats.current_max_hp)
 
 # mana related functions
 func get_current_mana() -> int:

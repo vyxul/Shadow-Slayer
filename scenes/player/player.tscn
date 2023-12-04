@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1rljgawdiaep"]
+[gd_scene load_steps=39 format=3 uid="uid://1rljgawdiaep"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7jj5m"]
 [ext_resource type="PackedScene" uid="uid://mciw8hmudt13" path="res://scenes/player/components/player_hurtbox_component.tscn" id="2_qnaty"]
@@ -34,9 +34,10 @@
 [ext_resource type="Texture2D" uid="uid://s2u0l2h3g4n4" path="res://scenes/player/run/tile006.png" id="31_njjsr"]
 [ext_resource type="Texture2D" uid="uid://bg5ql7lsgw8jv" path="res://scenes/player/run/tile007.png" id="32_3dwwh"]
 [ext_resource type="PackedScene" uid="uid://uurddiox0nec" path="res://scenes/weapons/weapon_controller.tscn" id="33_peuwe"]
+[ext_resource type="PackedScene" uid="uid://bak3182tp8xc4" path="res://scenes/status effects/player_hp_status_effect.tscn" id="35_tub88"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8mtnf"]
-radius = 4.12311
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j14o"]
+size = Vector2(10, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp1kj"]
 radius = 5.0
@@ -167,8 +168,8 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_8mtnf")
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_0j14o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.115)
@@ -190,5 +191,9 @@ one_shot = true
 [node name="DashCooldownTimer" type="Timer" parent="."]
 
 [node name="WeaponController" parent="." instance=ExtResource("33_peuwe")]
+
+[node name="StatusEffectsGroup" type="Node" parent="." groups=["player_status_effects"]]
+
+[node name="PlayerHP_StatusEffect" parent="StatusEffectsGroup" instance=ExtResource("35_tub88")]
 
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]

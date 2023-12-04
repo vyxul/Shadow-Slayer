@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bak3182tp8xc4"]
+
+[ext_resource type="Script" path="res://scenes/status effects/player_hp_status_effect.gd" id="1_xwwbr"]
+
+[node name="PlayerHP_StatusEffect" type="Node"]
+script = ExtResource("1_xwwbr")

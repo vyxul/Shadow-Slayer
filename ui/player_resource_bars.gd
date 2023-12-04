@@ -12,7 +12,7 @@ func _ready():
 
 
 func update_hp_bar():
-	health_bar.max_value = PlayerStats.stats.max_hp
+	health_bar.max_value = PlayerStats.stats.current_max_hp
 	health_bar.value = PlayerStats.stats.current_hp
 
 

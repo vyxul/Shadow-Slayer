@@ -43,10 +43,10 @@ position = Vector2(320, 180)
 
 [node name="DashAbilityUI" parent="Ui" instance=ExtResource("6_btw8a")]
 
+[node name="PlayerResourceBars" parent="Ui" instance=ExtResource("8_wpg8h")]
+
 [node name="InventoryUI" parent="Ui" instance=ExtResource("8_sl4df")]
 visible = false
-
-[node name="PlayerResourceBars" parent="Ui" instance=ExtResource("8_wpg8h")]
 
 [node name="Entities" type="Node2D" parent="." groups=["entity_layer"]]
 

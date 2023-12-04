@@ -16,9 +16,11 @@ var dash_current_charges: int = dash_max_charges
 @onready var dash_timer = $DashTimer
 @onready var dash_cooldown_timer = $DashCooldownTimer
 @onready var weapon_controller = $WeaponController
+@onready var status_effects_group = $StatusEffectsGroup
 
 var isDashing: bool = false
-#test
+var applying_status_effects: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dash_cooldown_timer.wait_time = dash_charge_cooldown
@@ -61,6 +63,26 @@ func _input(event):
 	if Input.is_action_just_pressed("dash"):
 		dash()
 
+	if event.is_action_pressed("status_effects"):
+		toggle_status_effects()
+
+
+# for now this is just function to test that status effect works
+func toggle_status_effects():
+	var status_effects = status_effects_group.get_children()
+	
+	# if no status effects, leave function
+	if status_effects.is_empty():
+		return
+	
+	applying_status_effects = !applying_status_effects
+	
+	for status_effect in status_effects:
+		if applying_status_effects:
+			status_effect.apply_effect()
+		else:
+			status_effect.remove_effect()
+
 
 func get_weapon_origin() -> Vector2:
 	return $AnimatedSprite2D/WeaponOriginPoint.global_position
@@ -87,11 +109,13 @@ func dash():
 	var movement_vector = get_movement_vector()
 	velocity = movement_vector * run_speed * dash_multiplier
 	collision_mask -= 4
+	$PlayerHurtboxComponent/CollisionShape2D.set_deferred("disabled", true)
 	dash_set_charges.emit(dash_current_charges)
 	dash_timer.start()
 	await dash_timer.timeout
 	isDashing = false
 	collision_mask += 4
+	$PlayerHurtboxComponent/CollisionShape2D.set_deferred("disabled", false)
 	velocity = movement_vector * run_speed
 
 

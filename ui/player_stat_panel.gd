@@ -27,7 +27,7 @@ func _ready():
 func update_player_stat_panel():
 	# stats
 	level_value_label.text = str(PlayerStats.stats.level)
-	hp_value_label.text = "%d / %d" % [PlayerStats.stats.current_hp, PlayerStats.stats.max_hp]
+	hp_value_label.text = "%d / %d" % [PlayerStats.stats.current_hp, PlayerStats.stats.current_max_hp]
 	mp_value_label.text = "%d / %d" % [PlayerStats.stats.current_mana, PlayerStats.stats.max_mana]
 	speed_value_label.text = str(PlayerStats.stats.move_speed)
 	
