@@ -10,19 +10,19 @@ process_mode = 3
 script = ExtResource("1_h5iag")
 
 [node name="EquipmentPanel" parent="." instance=ExtResource("1_t6v4k")]
-offset_left = 323.0
+offset_left = 403.0
 offset_top = 60.0
-offset_right = 523.0
+offset_right = 603.0
 offset_bottom = 460.0
 
 [node name="WeaponInventoryPanel" parent="." instance=ExtResource("2_yqnis")]
-offset_left = 24.0
+offset_left = 104.0
 offset_top = 60.0
-offset_right = 307.0
+offset_right = 387.0
 offset_bottom = 460.0
 
 [node name="PlayerStatPanel" parent="." instance=ExtResource("4_ruiyx")]
-offset_left = 545.0
+offset_left = 625.0
 offset_top = 60.0
-offset_right = 745.0
+offset_right = 825.0
 offset_bottom = 460.0

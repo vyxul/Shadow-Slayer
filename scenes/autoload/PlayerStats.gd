@@ -304,7 +304,7 @@ func adjust_defenses(item: Item, equipping: bool = true):
 	# else it is an item and can adjust the stats
 	var equip_control = 1 if equipping else -1
 	var string = "Equipping: " if equipping else "Unequipping: "
-	print_debug(string + item_resource.get_item_info())
+#	print_debug(string + item_resource.get_item_info())
 	
 	# manually add the stats from the item to the dictionary
 	# using the equip_control as modifier for equipping/unequipping the stat changes
@@ -338,7 +338,7 @@ func adjust_defenses(item: Item, equipping: bool = true):
 	if str(defenses.pierce_resist)    == "-0": defenses.pierce_resist = 0
 	if str(defenses.blunt_resist)     == "-0": defenses.blunt_resist = 0
 	
-	print_debug("Defenses: " + str(defenses))
+#	print_debug("Defenses: " + str(defenses))
 	player_stats_changed.emit()
 
 

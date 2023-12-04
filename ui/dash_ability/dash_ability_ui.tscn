@@ -29,11 +29,11 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_nfr7q")
-stretch_mode = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/TextureRect"]
 modulate = Color(0.431373, 0.431373, 0.431373, 0.698039)
@@ -54,17 +54,15 @@ texture_progress = SubResource("GradientTexture2D_aabi3")
 
 [node name="Label" type="Label" parent="MarginContainer/TextureRect"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -944.0
-offset_top = -17.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
 text = "3"
 horizontal_alignment = 2
 vertical_alignment = 2
