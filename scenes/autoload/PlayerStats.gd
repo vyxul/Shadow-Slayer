@@ -16,6 +16,9 @@ signal player_mana_changed(current_mana: int, max_mana: int)
 # equipment signals
 signal current_weapon_changed(item: Item)
 
+var show_damage_numbers: bool = true
+var floating_text_scene = preload("res://ui/floating_text.tscn")
+
 # general player stats
 var stats = {
 	# maybe have level affect damage by 5% per level?
@@ -120,6 +123,10 @@ func change_max_hp(hp_amount: int):
 
 
 func damage(damage_stats: Dictionary) -> int:
+	var player = get_tree().get_first_node_in_group("player")
+	if !player:
+		return 0
+		
 	print_debug("reached playerstats.damage()")
 	var damage_amount  = damage_stats["damage"]
 	var damage_element = damage_stats["damage_element"]
@@ -136,6 +143,17 @@ func damage(damage_stats: Dictionary) -> int:
 	stats.current_hp -= adjusted_damage_amount
 	check_hp()
 	player_hp_lost.emit(adjusted_damage_amount, stats.current_hp, stats.max_hp)
+	
+	
+	# set up the floating text scene
+	if show_damage_numbers:
+		var floating_text_instance = floating_text_scene.instantiate() as Node2D
+		get_tree().get_first_node_in_group("foreground_layer").add_child(floating_text_instance)
+		floating_text_instance.global_position = player.global_position + (Vector2.UP * 16)
+		floating_text_instance.set_color(Color.DARK_RED)
+		# get the damage formatted into string
+		var format_string = "%d"
+		floating_text_instance.start(format_string % damage_amount)
 	
 	return adjusted_damage_amount
 
@@ -493,3 +511,24 @@ func save():
 
 func load():
 	pass
+
+
+# only temporary to have heal and damage in same spot for now
+# also for the floating text code
+func _input(event: InputEvent):
+	if event.is_action_pressed("heal"):
+		var player = get_tree().get_first_node_in_group("player")
+		if !player:
+			return
+			
+		var heal_amount = 1
+		PlayerStats.heal(heal_amount)
+		
+		# set up the floating text scene
+		var floating_text_instance = floating_text_scene.instantiate() as Node2D
+		get_tree().get_first_node_in_group("foreground_layer").add_child(floating_text_instance)
+		floating_text_instance.global_position = player.global_position + (Vector2.UP * 16)
+		floating_text_instance.set_color(Color.GREEN)
+		# get the damage formatted into string
+		var format_string = "%d"
+		floating_text_instance.start(format_string % heal_amount)

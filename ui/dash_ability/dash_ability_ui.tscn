@@ -9,8 +9,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_aabi3"]
 gradient = SubResource("Gradient_yrips")
-width = 22
-height = 22
+width = 44
+height = 44
 
 [node name="DashAbilityUI" type="CanvasLayer"]
 script = ExtResource("1_3gx52")
@@ -43,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -11.0
-offset_top = -11.0
-offset_right = 11.0
-offset_bottom = 11.0
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 fill_mode = 5
