@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_qq0gr")
 weapon_type = 1
-weapon_damage = 1
+weapon_damage = 100
 weapon_damage_element = 0
 weapon_damage_type = 0
 weapon_cooldown_time = 1.5

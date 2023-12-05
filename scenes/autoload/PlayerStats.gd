@@ -131,7 +131,7 @@ func damage(damage_stats: Dictionary) -> int:
 	if !player:
 		return 0
 		
-	print_debug("reached playerstats.damage()")
+#	print_debug("reached playerstats.damage()")
 	var damage_amount  = damage_stats["damage"]
 	var damage_element = damage_stats["damage_element"]
 	var damage_type    = damage_stats["damage_type"]
@@ -157,7 +157,7 @@ func damage(damage_stats: Dictionary) -> int:
 		floating_text_instance.set_color(Color.DARK_RED)
 		# get the damage formatted into string
 		var format_string = "%d"
-		floating_text_instance.start(format_string % damage_amount)
+		floating_text_instance.start(format_string % adjusted_damage_amount)
 	
 	return adjusted_damage_amount
 
@@ -264,11 +264,11 @@ func adjust_damage(damage_stats: Dictionary) -> int:
 	var type_resist = 0.0
 	match(damage_type):
 		DamageEnums.DamageType.Slash:
-			element_resist = defenses.slash_resist
+			type_resist = defenses.slash_resist
 		DamageEnums.DamageType.Pierce:
-			element_resist = defenses.pierce_resist
+			type_resist = defenses.pierce_resist
 		DamageEnums.DamageType.Blunt:
-			element_resist = defenses.blunt_resist
+			type_resist = defenses.blunt_resist
 	
 	# Formula:
 	# (DMG * ((1 - ElementResist)(1 - TypeResist))) - Defense
@@ -277,6 +277,8 @@ func adjust_damage(damage_stats: Dictionary) -> int:
 	var element_damage_taken_percent = 1.0 - element_resist
 	var type_damage_taken_percent = 1.0 - type_resist
 	var damage_taken_percent = element_damage_taken_percent * type_damage_taken_percent
+#	print_debug("damage_taken_percent: %f, element_damage_taken_percent: %f, type_damage_taken_percent: %f" \
+#		% [damage_taken_percent, element_damage_taken_percent, type_damage_taken_percent])
 	adjusted_damage_amount *= damage_taken_percent
 	adjusted_damage_amount -= defenses.armor_defense
 #	print_debug("adjusted damage amount before round: %f" % adjusted_damage_amount)
