@@ -23,9 +23,9 @@ var floating_text_scene = preload("res://ui/floating_text.tscn")
 var stats = {
 	# maybe have level affect damage by 5% per level?
 	"level": 1,
-	"base_max_hp": 10,
-	"current_max_hp": 10,
-	"current_hp": 10,
+	"base_max_hp": 50,
+	"current_max_hp": 50,
+	"current_hp": 50,
 	"max_mana": 10,
 	"current_mana": 10,
 	"move_speed": 120

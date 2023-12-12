@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsvwi6p7idd3a"]
+[gd_scene load_steps=2 format=3 uid="uid://dsvwi6p7idd3a"]
 
-[ext_resource type="Script" path="res://ui/player_resource_bars.gd" id="1_fwn1d"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brqrw"]
-bg_color = Color(0.6, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ism0f"]
-bg_color = Color(0, 0.443137, 0.639216, 1)
+[ext_resource type="PackedScene" uid="uid://jl4mai311xvn" path="res://ui/player_heart_bar.tscn" id="2_rrjye"]
 
 [node name="PlayerResourceBars" type="CanvasLayer"]
-script = ExtResource("1_fwn1d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -17,30 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="PlayerHeartBar" parent="MarginContainer" instance=ExtResource("2_rrjye")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 2
-
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_brqrw")
-step = 1.0
-value = 80.0
-show_percentage = false
-
-[node name="ManaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_ism0f")
-step = 1.0
-value = 43.0
-show_percentage = false

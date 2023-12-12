@@ -1,7 +1,7 @@
 extends Node
 
-var player_hp_change_flat: int = 1
-var player_hp_multiplier: float = 1.0
+var player_hp_change_flat: int = 10
+var player_hp_multiplier: float = 2.0
 
 
 func apply_effect():
@@ -22,9 +22,8 @@ func apply_effect():
 			PlayerStats.stats.current_hp = PlayerStats.stats.current_max_hp
 	
 	# let playerstats check to make sure that current hp is in range
+	# check_hp will also emit signal that player stats changed
 	PlayerStats.check_hp()
-	# send signal to let ui know that hp changed
-	PlayerStats.player_stats_changed.emit()
 
 
 func remove_effect():
@@ -34,7 +33,7 @@ func remove_effect():
 	var player_hp_original_max = player_hp_remove_flat_change / player_hp_multiplier
 	
 	PlayerStats.stats.current_max_hp = player_hp_original_max
+	
 	# let playerstats check to make sure that current hp is in range
+	# check_hp will also emit signal that player stats changed
 	PlayerStats.check_hp()
-	# send signal to let ui know that hp changed
-	PlayerStats.player_stats_changed.emit()

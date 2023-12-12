@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://diccs6qt2j6oo" path="res://assets/art/items/weapons/axe_one_sided_double_edge.png" id="2_f3c8j"]
 [ext_resource type="PackedScene" uid="uid://dlplsmjidvq0l" path="res://scenes/components/hitbox_component.tscn" id="3_aopsw"]
 
-
 [sub_resource type="Animation" id="Animation_3wuqj"]
 length = 0.001
 tracks/0/type = "value"

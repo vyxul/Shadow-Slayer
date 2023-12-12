@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djmo4ihcb7yvr"
-path="res://.godot/imported/001 base bar - upper middle.png-f163a2f8f5b74dc8233af297f5b17959.ctex"
+uid="uid://bdmyx7fsi2wu0"
+path="res://.godot/imported/000 base inventory - 9 slice.png-7f6a8227d0e78494804f9fb11b873f6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/001 base bar - upper middle.png"
-dest_files=["res://.godot/imported/001 base bar - upper middle.png-f163a2f8f5b74dc8233af297f5b17959.ctex"]
+source_file="res://assets/art/ui/000 base inventory - 9 slice.png"
+dest_files=["res://.godot/imported/000 base inventory - 9 slice.png-7f6a8227d0e78494804f9fb11b873f6d.ctex"]
 
 [params]
 
