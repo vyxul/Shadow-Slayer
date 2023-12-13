@@ -6,11 +6,6 @@ extends Control
 @onready var partial_heart_progress_bar = %PartialHeartProgressBar
 
 
-func _ready():
-#	set_heart_partial(.75)
-	pass
-
-
 func set_heart_full():
 	full_heart_sprite.visible = true
 	partial_heart.visible = false

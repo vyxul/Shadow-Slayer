@@ -26,8 +26,9 @@ var stats = {
 	"base_max_hp": 50,
 	"current_max_hp": 50,
 	"current_hp": 50,
-	"max_mana": 10,
-	"current_mana": 10,
+	"base_max_mana": 50,
+	"current_max_mana": 50,
+	"current_mana": 50,
 	"move_speed": 120
 }
 
@@ -83,6 +84,10 @@ var status_effects = {}
 
 # stat functions
 # hp related functions
+func emit_player_hp_changed():
+	player_hp_changed.emit(stats.current_hp, stats.current_max_hp)
+
+
 func get_current_hp() -> int:
 	return stats.current_hp
 
@@ -94,7 +99,7 @@ func check_hp():
 		
 	# clamp the current hp within bounds of 0 <--> max hp
 	stats.current_hp = clamp(stats.current_hp, 0, stats.current_max_hp)
-	player_stats_changed.emit()
+#	player_stats_changed.emit()
 
 
 # pass in the amount you want the max hp to change by
@@ -147,6 +152,7 @@ func damage(damage_stats: Dictionary) -> int:
 	stats.current_hp -= adjusted_damage_amount
 	check_hp()
 	player_hp_lost.emit(adjusted_damage_amount, stats.current_hp, stats.current_max_hp)
+	emit_player_hp_changed()
 	
 	
 	# set up the floating text scene
@@ -166,19 +172,25 @@ func heal(heal_amount: int):
 	stats.current_hp += heal_amount
 	check_hp()
 	player_hp_healed.emit(heal_amount, stats.current_hp, stats.current_max_hp)
+	emit_player_hp_changed()
 
 # mana related functions
+func emit_player_mana_changed():
+	player_mana_changed.emit(stats.current_mana, stats.current_max_mana)
+
+
 func get_current_mana() -> int:
 	return stats.current_mana
 
 
 func check_mana():
-	# if hp at 0, send died signal for parent entity to queue free
+	# if mana at 0, send signal for empty mana
 	if stats.current_mana <= 0:
 		player_mana_empty.emit()
 		
 	# clamp the current hp within bounds of 0 <--> max hp
-	stats.current_mana = clamp(stats.current_mana, 0, stats.max_mana)
+	stats.current_mana = clamp(stats.current_mana, 0, stats.current_max_mana)
+#	player_stats_changed.emit()
 
 
 # pass in the amount you want the max hp to change by
@@ -187,24 +199,25 @@ func change_max_mana(mana_amount: int):
 	if mana_amount == 0:
 		return
 	
-	stats.max_mana += mana_amount
-	# ensure that max hp doesnt go below 0
-	stats.max_mana = max(stats.max_mana, 0)
-	# if max hp went up, make current hp go up by same amount
+	stats.base_max_mana += mana_amount
+	# ensure that max mana doesnt go below 0
+	stats.base_max_mana = max(stats.max_mana, 0)
+	stats.current_max_mana = stats.base_max_mana
+	
+	# emit signal that max mana changed
+	player_mana_changed.emit(stats.current_mana, stats.base_max_mana)
+	
+	# if max mana went up, make current mana go up by same amount
 	if mana_amount > 0:
 		stats.current_mana += mana_amount
-		# check_hp shouldn't really do anything here but just leaving it just in case
-		check_mana()
-	# else max hp went down
+	# else max mana went down
 	else:
-		# if max hp < current hp, make current hp = max hp
-		stats.max_mana += mana_amount
-		if stats.max_mana < stats.current_mana:
-			stats.current_mana = stats.max_mana
-		# else leave current hp at where it is
+		if stats.current_max_mana < stats.current_mana:
+			stats.current_mana = stats.current_max_mana
+		# else leave current mana at where it is
 		
-	# emit signal that max hp changed
-	player_mana_changed.emit(stats.current_mana, stats.max_mana)
+	# double check that current mana is in correct range and use it to emit signal
+	check_mana()
 
 
 # takes in only positive values to subtract from current mana
@@ -213,11 +226,9 @@ func mana_use(mana_use_amount: int):
 		return
 	
 	stats.current_mana -= mana_use_amount
-	stats.current_mana = max(stats.current_mana, 0)
-	if stats.current_mana == 0:
-		player_mana_empty.emit()
-		
+	check_mana()
 	player_mana_lost.emit(mana_use_amount, stats.current_mana, stats.max_mana)
+	emit_player_mana_changed()
 
 
 func mana_gain(mana_gain_amount: int):
@@ -225,9 +236,9 @@ func mana_gain(mana_gain_amount: int):
 		return
 	
 	stats.current_mana += mana_gain_amount
-	stats.current_mana = min(stats.current_mana, stats.max_mana)
-	
+	check_mana()
 	player_mana_gained.emit(mana_gain_amount, stats.current_mana, stats.max_mana)
+	emit_player_mana_changed()
 
 
 # calculates the incoming damage adjusted amount based on player defenses

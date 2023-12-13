@@ -5,7 +5,7 @@ extends PanelContainer
 @onready var accessory_grid_container = $MarginContainer/VBoxContainer/TabContainer/Accessories/MarginContainer/Accessory_GridContainer
 @onready var ability_grid_container = $MarginContainer/VBoxContainer/TabContainer/Abilities/MarginContainer/Ability_GridContainer
 
-var item_slot_scene = preload("res://ui/item_slot.tscn")
+var item_slot_scene = preload("res://ui/inventory_ui/item_slot.tscn")
 # can change this to be whatever looks good, 35 will fill whole panel
 var panel_fill_count = 35
 # 5 will fill row of panel

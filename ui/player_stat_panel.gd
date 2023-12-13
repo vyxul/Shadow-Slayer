@@ -22,13 +22,15 @@ extends PanelContainer
 func _ready():
 	update_player_stat_panel()
 	PlayerStats.player_stats_changed.connect(update_player_stat_panel)
+	PlayerStats.player_hp_changed.connect(on_player_hp_changed)
+	PlayerStats.player_mana_changed.connect(on_player_mp_changed)
 
 
 func update_player_stat_panel():
 	# stats
 	level_value_label.text = str(PlayerStats.stats.level)
 	hp_value_label.text = "%d / %d" % [PlayerStats.stats.current_hp, PlayerStats.stats.current_max_hp]
-	mp_value_label.text = "%d / %d" % [PlayerStats.stats.current_mana, PlayerStats.stats.max_mana]
+	mp_value_label.text = "%d / %d" % [PlayerStats.stats.current_mana, PlayerStats.stats.current_max_mana]
 	speed_value_label.text = str(PlayerStats.stats.move_speed)
 	
 	# defenses
@@ -45,6 +47,14 @@ func update_player_stat_panel():
 	slash_resist_value_label.text = str(PlayerStats.defenses.slash_resist)
 	pierce_resist_value_label.text = str(PlayerStats.defenses.pierce_resist)
 	blunt_resist_value_label.text = str(PlayerStats.defenses.blunt_resist)
+
+
+func on_player_hp_changed(current_hp, max_hp):
+	update_player_stat_panel()
+
+
+func on_player_mp_changed(current_mp, max_mp):
+	update_player_stat_panel()
 
 
 func set_panel_visible(state: bool):

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqmo75r4upda4"]
+
+[ext_resource type="Texture2D" uid="uid://dpsolulxuj5e0" path="res://assets/art/ui/000 base bar - profile.png" id="1_rmdha"]
+[ext_resource type="Texture2D" uid="uid://dbr44kej88b41" path="res://assets/art/ui/007 base bar - player profile.png" id="2_8opaa"]
+
+[node name="PlayerIcon" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -476.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="000BaseBar-Profile" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("1_rmdha")
+
+[node name="007BaseBar-PlayerProfile" type="Sprite2D" parent="."]
+position = Vector2(31, 37)
+texture = ExtResource("2_8opaa")
+hframes = 6

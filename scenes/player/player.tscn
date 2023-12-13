@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://1rljgawdiaep"]
+[gd_scene load_steps=40 format=3 uid="uid://1rljgawdiaep"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7jj5m"]
 [ext_resource type="PackedScene" uid="uid://mciw8hmudt13" path="res://scenes/player/components/player_hurtbox_component.tscn" id="2_qnaty"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bg5ql7lsgw8jv" path="res://scenes/player/run/tile007.png" id="32_3dwwh"]
 [ext_resource type="PackedScene" uid="uid://uurddiox0nec" path="res://scenes/weapons/weapon_controller.tscn" id="33_peuwe"]
 [ext_resource type="PackedScene" uid="uid://bak3182tp8xc4" path="res://scenes/status effects/player_hp_status_effect.tscn" id="35_tub88"]
+[ext_resource type="PackedScene" uid="uid://chpwcxutuotvu" path="res://scenes/status effects/player_mp_status_effect.tscn" id="36_x2ynl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j14o"]
 size = Vector2(10, 15)
@@ -195,5 +196,7 @@ one_shot = true
 [node name="StatusEffectsGroup" type="Node" parent="." groups=["player_status_effects"]]
 
 [node name="PlayerHP_StatusEffect" parent="StatusEffectsGroup" instance=ExtResource("35_tub88")]
+
+[node name="PlayerMP_StatusEffect" parent="StatusEffectsGroup" instance=ExtResource("36_x2ynl")]
 
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]

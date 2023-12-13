@@ -7,7 +7,7 @@ extends Control
 var base_bar_1 = preload("res://assets/art/ui/001 base bar - upper start.png")
 var base_bar_2 = preload("res://assets/art/ui/002 base bar - upper middle.png")
 var base_bar_3 = preload("res://assets/art/ui/003 base bar - upper end.png")
-var player_heart_scene = preload("res://ui/player_heart.tscn")
+var player_heart_scene = preload("res://ui/hud_ui/player_heart.tscn")
 
 var current_hearts_displayed: int = 0
 var player_max_hp: int = 100
@@ -17,7 +17,7 @@ var player_current_hp: int = 95
 
 func _ready():
 	update_hp_display()
-	PlayerStats.player_stats_changed.connect(update_hp_display)
+	PlayerStats.player_hp_changed.connect(update_hp_display)
 	pass
 
 
@@ -92,7 +92,7 @@ func update_hearts_display():
 		index += 1
 
 
-func update_hp_display():
+func update_hp_display(current_hp = 1, max_hp = 1):
 	clear_hp_display()
 	# give time for clear_hp_display() to actually remove the old nodes
 	await get_tree().process_frame

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhfhlpi8ada5a"]
 
-[ext_resource type="Script" path="res://ui/inventory_ui.gd" id="1_h5iag"]
-[ext_resource type="PackedScene" uid="uid://blgt3mybhhr0s" path="res://ui/equipment_panel.tscn" id="1_t6v4k"]
-[ext_resource type="PackedScene" uid="uid://cot4k8tl1qeov" path="res://ui/player_inventory_panel.tscn" id="2_yqnis"]
+[ext_resource type="Script" path="res://ui/inventory_ui/inventory_ui.gd" id="1_h5iag"]
+[ext_resource type="PackedScene" uid="uid://blgt3mybhhr0s" path="res://ui/inventory_ui/equipment_panel.tscn" id="1_t6v4k"]
+[ext_resource type="PackedScene" uid="uid://cot4k8tl1qeov" path="res://ui/hud_ui/player_inventory_panel.tscn" id="2_yqnis"]
 [ext_resource type="PackedScene" uid="uid://cse2opg6kibut" path="res://ui/player_stat_panel.tscn" id="4_ruiyx"]
 
 [node name="InventoryUI" type="CanvasLayer"]

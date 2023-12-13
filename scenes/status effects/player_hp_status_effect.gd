@@ -22,8 +22,8 @@ func apply_effect():
 			PlayerStats.stats.current_hp = PlayerStats.stats.current_max_hp
 	
 	# let playerstats check to make sure that current hp is in range
-	# check_hp will also emit signal that player stats changed
 	PlayerStats.check_hp()
+	PlayerStats.emit_player_hp_changed()
 
 
 func remove_effect():
@@ -37,3 +37,4 @@ func remove_effect():
 	# let playerstats check to make sure that current hp is in range
 	# check_hp will also emit signal that player stats changed
 	PlayerStats.check_hp()
+	PlayerStats.emit_player_hp_changed()

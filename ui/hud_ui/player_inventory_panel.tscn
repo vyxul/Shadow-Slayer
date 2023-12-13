@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cot4k8tl1qeov"]
 
-[ext_resource type="Script" path="res://ui/player_inventory_panel.gd" id="1_4wlq4"]
-[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/item_slot.tscn" id="2_uh5lv"]
+[ext_resource type="Script" path="res://ui/hud_ui/player_inventory_panel.gd" id="1_4wlq4"]
+[ext_resource type="PackedScene" uid="uid://1gdnvp87qhtf" path="res://ui/inventory_ui/item_slot.tscn" id="2_uh5lv"]
 
 [node name="InventoryPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(283, 400)
