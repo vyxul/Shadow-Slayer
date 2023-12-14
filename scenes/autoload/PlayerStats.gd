@@ -227,7 +227,7 @@ func mana_use(mana_use_amount: int):
 	
 	stats.current_mana -= mana_use_amount
 	check_mana()
-	player_mana_lost.emit(mana_use_amount, stats.current_mana, stats.max_mana)
+	player_mana_lost.emit(mana_use_amount, stats.current_mana, stats.current_max_mana)
 	emit_player_mana_changed()
 
 
@@ -237,7 +237,7 @@ func mana_gain(mana_gain_amount: int):
 	
 	stats.current_mana += mana_gain_amount
 	check_mana()
-	player_mana_gained.emit(mana_gain_amount, stats.current_mana, stats.max_mana)
+	player_mana_gained.emit(mana_gain_amount, stats.current_mana, stats.current_max_mana)
 	emit_player_mana_changed()
 
 
@@ -549,3 +549,9 @@ func _input(event: InputEvent):
 		# get the damage formatted into string
 		var format_string = "%d"
 		floating_text_instance.start(format_string % heal_amount)
+		
+	if event.is_action_pressed("mana_down"):
+		PlayerStats.mana_use(3)
+	
+	if event.is_action_pressed("mana_up"):
+		PlayerStats.mana_gain(3)
