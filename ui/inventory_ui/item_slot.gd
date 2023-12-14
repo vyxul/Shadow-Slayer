@@ -61,6 +61,14 @@ func set_item(item: Item):
 		border_rect.color = Color.DARK_RED
 		is_weapon_resource = true
 	
+	if item_resource is ArmorResource:
+		border_rect.color = Color.GREEN
+		is_armor_resource = true
+		
+	if item_resource is AccessoryResource:
+		border_rect.color = Color.GOLD
+		is_accessory_resource = true
+	
 	# emit signal that item changed
 	item_updated.emit(current_item)
 
@@ -71,6 +79,10 @@ func remove_item():
 	
 	current_item = null
 	slot_empty = true
+	is_weapon_resource = false
+	is_armor_resource = false
+	is_accessory_resource = false
+	
 	fill_rect.color = Color.DARK_GRAY
 	border_rect.color = Color.BLACK
 	# set the alpha to a good number to look transparent

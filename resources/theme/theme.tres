@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cf6pcpkij0h4x"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cf6pcpkij0h4x"]
 
 [ext_resource type="Texture2D" uid="uid://dwwfd0p0rdij0" path="res://assets/art/ui/ui.png" id="1_ay6r7"]
+[ext_resource type="Texture2D" uid="uid://bdmyx7fsi2wu0" path="res://assets/art/ui/000 base inventory - 9 slice.png" id="2_dvuk0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sa3ml"]
 texture = ExtResource("1_ay6r7")
@@ -18,7 +19,16 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 region_rect = Rect2(18, 2, 12, 12)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dp152"]
+texture = ExtResource("2_dvuk0")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_sa3ml")
 PanelContainerBig/base_type = &"PanelContainer"
 PanelContainerBig/styles/panel = SubResource("StyleBoxTexture_buveq")
+PanelContainer_ItemSlot/base_type = &"PanelContainer"
+PanelContainer_ItemSlot/styles/panel = SubResource("StyleBoxTexture_dp152")
